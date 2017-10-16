@@ -106,3 +106,17 @@
 	ThreeCSS大量使用了对象池的方式，大幅度降低了JavaScript虚拟机垃圾回收的频率，提高性能。
 	
 	
+	
+1、安装nodejs
+
+2、执行npm install -g grunt-cli
+
+	npm init
+	npm install grunt --save-dev
+	npm install grunt-contrib-concat --save-dev
+	npm install grunt-contrib-uglify --save-dev
+
+3、进入threecss-c 执行grunt
+
+
+	
