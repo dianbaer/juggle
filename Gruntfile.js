@@ -43,13 +43,13 @@ module.exports = function (grunt) {
                     'src/websocket/WebSocketEventType.js',//无依赖
                     'src/websocket/WebSocketClient.js'//$T.webSocketEventType、$T.webSocketConfig、EventDispatcher
                 ],
-                dest: '../dist/<%= pkg.name %>.js'
+                dest: 'dist/<%= pkg.name %>.js'
             }
         },
         uglify: {
             build: {
-                src: '../dist/<%= pkg.name %>.js',
-                dest: '../dist/<%= pkg.name %>.min.js'
+                src: 'dist/<%= pkg.name %>.js',
+                dest: 'dist/<%= pkg.name %>.min.js'
             }
         }
     });

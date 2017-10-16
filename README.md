@@ -109,14 +109,13 @@
 	
 1、安装nodejs
 
-2、执行npm install -g grunt-cli
+2、执行
 
-	npm init
-	npm install grunt --save-dev
-	npm install grunt-contrib-concat --save-dev
-	npm install grunt-contrib-uglify --save-dev
+	npm install -g grunt-cli
 
-3、进入threecss-c 执行grunt
+	npm install
+	
+	grunt
 
 
 	
