@@ -1,6 +1,10 @@
 # threecss-c
 
 
+[![Build Status](https://travis-ci.org/dianbaer/basic.svg?branch=master)](https://travis-ci.org/dianbaer/basic)
+
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 ## threecss-c.js
 
 在开发Http项目时，更推荐C/S架构的模式。所以专门开发了Client端的JavaScript库供网页前端使用。只需引入：
