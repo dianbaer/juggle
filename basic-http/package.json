@@ -1,0 +1,12 @@
+{  
+	"name": "jeno",
+	"version": "0.0.1",
+	"main": "jeno.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/dianbaer/jeno"
+	},
+	"keywords": [
+		"jeno"
+	]
+}
