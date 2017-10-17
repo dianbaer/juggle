@@ -18,7 +18,7 @@
             DisplayObj.apply(this);
             this.addChild = function (child) {
                 child.parent = this;
-            }
+            };
             this.removeChild = function (child) {
                 child.parent = null;
             }
@@ -28,12 +28,12 @@
             this.obj = obj;
             this.container = container;
             this.operate = function (event, data) {
-                if (event.mCurrentTarget == this.obj) {
+                if (event.mCurrentTarget === this.obj) {
                     //this.container.removeEventListener("aaa", this.operate);
                     //this.container.removeChild(this.obj);
                     this.obj.addEventListener("aaa", this.operate1, this)
                 }
-            }
+            };
             this.operate1 = function (event, data) {
 
             }
