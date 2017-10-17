@@ -1,8 +1,7 @@
 # basic
 
 
-[![Build Status](https://travis-ci.org/dianbaer/basic.svg?branch=master)](https://travis-ci.org/dianbaer/basic)
-
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c24c91f8a6e34a0aae1160fa5f69fee7)](https://www.codacy.com/app/232365732/basic?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dianbaer/basic&amp;utm_campaign=Badge_Grade)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 
