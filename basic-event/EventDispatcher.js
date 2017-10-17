@@ -20,7 +20,7 @@
             if (this.mEventListeners === null)
                 this.mEventListeners = [];
             var listeners = this.mEventListeners[type];
-            if (listeners === null) {
+            if (listeners === null || listeners === undefined) {
                 this.mEventListeners[type] = [listener];
                 functionMapping[listener] = parent;
             } else if (arrayTools.indexOf(listeners, listener) === -1) {
@@ -97,7 +97,7 @@
                 // "addEventListener" is not
                 // problematic, and "removeEventListener" will create a new Vector,
                 // anyway.
-
+                //回调中新添加的和移除的都不会影响这次调用，数量限制新添加的，移除时创建新数组。
                 for (var i = 0; i < numListeners; ++i) {
                     var listener = listeners[i];
                     var numArgs = listener.length;
