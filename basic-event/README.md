@@ -23,6 +23,9 @@
                 this.parent = null;
                 this.isDisplayObject = true;
                 basic.EventDispatcher.apply(this);
+                this.toString = function () {
+                    return 'im DisplayObj';
+                }
             }
 
             //继承DisplayObj
@@ -33,6 +36,9 @@
                 };
                 this.removeChild = function (child) {
                     child.parent = null;
+                }
+                this.toString = function () {
+                    return 'im DisplayObjContainer';
                 }
             }
 
