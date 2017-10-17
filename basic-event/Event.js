@@ -1,21 +1,42 @@
 (function (window) {
     if (!window.basic) window.basic = {};
+    /**
+     * 创建事件
+     * @param type 类型
+     * @param bubbles 是否冒泡
+     * @param data 携带数据
+     * @constructor
+     */
     var Event = function (type, bubbles, data) {
+        //发起事件的对象
         this.mTarget = null;
+        //监听到事件的对象
         this.mCurrentTarget = null;
+        //事件类型
         this.mType = null;
+        //是否冒泡
         this.mBubbles = null;
+        //是否阻止向上冒泡
         this.mStopsPropagation = null;
+        //是否阻止派发事件
         this.mStopsImmediatePropagation = null;
+        //携带数据
         this.mData = null;
-        /** 停止向上冒泡，这轮的事件广播不停（无回调）* */
+        /** 阻止向上冒泡，本次循环派发事件不阻止（无回调）* */
         this.stopPropagation = function () {
             this.mStopsPropagation = true;
         };
-        /** 立即停止事件广播（无回调）* */
+        /** 停止派发事件（无回调）* */
         this.stopImmediatePropagation = function () {
             this.mStopsPropagation = this.mStopsImmediatePropagation = true;
         };
+        /**
+         * 重置事件
+         * @param type
+         * @param bubbles
+         * @param data
+         * @returns {Event}
+         */
         this.reset = function (type, bubbles, data) {
             if (bubbles === undefined) {
                 bubbles = false;

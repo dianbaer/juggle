@@ -11,7 +11,7 @@
                 return new Event(type, bubbles, data);
             }
         };
-        /** 只清理两个目标和带来的数据，是为了可以释放资源，其他的不清理，等用的时候再重置，增加效率（无回调）* */
+        /** 只清理两个目标和带来的数据，是为了可以释放资源，其他的不清理，等用的时候再重置（无回调）* */
         this.toPool = function (event) {
             event.mData = event.mTarget = event.mCurrentTarget = null;
             this.sEventPool[this.sEventPool.length] = event;
