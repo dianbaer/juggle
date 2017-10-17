@@ -16,6 +16,10 @@ basic一个JavaScirpt开发基础库，包含事件、动画、消息、http、w
 	构建树形显示列表的必要组件，支持事件冒泡。
 
 
+npm pack
 
+npm adduser
+
+npm publish
 
 	
