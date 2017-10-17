@@ -29,8 +29,11 @@
             this.container = container;
             this.operate = function (event, data) {
                 if (event.mCurrentTarget === this.obj) {
+                    //操作冒泡上一层级，能够影响
                     //this.container.removeEventListener("aaa", this.operate);
+                    //操作冒泡链，不能影响
                     //this.container.removeChild(this.obj);
+                    //操作本层级，不能影响
                     this.obj.addEventListener("aaa", this.operate1, this)
                 }
             };
