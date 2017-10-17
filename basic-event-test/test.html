@@ -13,8 +13,8 @@
             this.isDisplayObject = true;
             basic.EventDispatcher.apply(this);
         }
-        function DisplayObjContainer() {
 
+        function DisplayObjContainer() {
             DisplayObj.apply(this);
             this.addChild = function (child) {
                 child.parent = this;
@@ -22,8 +22,8 @@
             this.removeChild = function (child) {
                 child.parent = null;
             }
-
         }
+
         function Class1(obj, container) {
             this.obj = obj;
             this.container = container;
@@ -40,17 +40,16 @@
             this.operate1 = function (event, data) {
 
             }
-
         }
-        window.onload = function () {
-            var event1 = basic.eventPool.fromPool("111", true, "222");
-            var event2 = basic.eventPool.fromPool("333", true, "444");
-            basic.eventPool.toPool(event1);
-            basic.eventPool.toPool(event2);
-            var event3 = basic.eventPool.fromPool("555", true, "666");
-            var event4 = basic.eventPool.fromPool("777", true, "888");
-            var event5 = basic.eventPool.fromPool("999", true, "100");
 
+        window.onload = function () {
+            //var event1 = basic.eventPool.fromPool("111", true, "222");
+            //var event2 = basic.eventPool.fromPool("333", true, "444");
+            //basic.eventPool.toPool(event1);
+            //basic.eventPool.toPool(event2);
+            //var event3 = basic.eventPool.fromPool("555", true, "666");
+            //var event4 = basic.eventPool.fromPool("777", true, "888");
+            //var event5 = basic.eventPool.fromPool("999", true, "100");
             var obj = new DisplayObj();
             var container = new DisplayObjContainer();
             container.addChild(obj);

@@ -7,12 +7,12 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
-		"type": "git",
-		"url": "https://github.com/dianbaer/basic"
-	},
-	"keywords": [
-		"basic"
-	],
+    "type": "git",
+    "url": "https://github.com/dianbaer/basic"
+  },
+  "keywords": [
+    "basic"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -20,7 +20,7 @@
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-uglify": "^3.0.1"
   },
-   "dependencies": {
-	"basic-help": "^1.0.0"
-   }
+  "dependencies": {
+    "basic-help": "^1.0.0"
+  }
 }
