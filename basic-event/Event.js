@@ -1,5 +1,6 @@
 (function (window) {
     if (!window.basic) window.basic = {};
+    var tools = window.basic.tools;
     /**
      * 创建事件
      * @param type 类型
@@ -38,10 +39,10 @@
          * @returns {Event}
          */
         this.reset = function (type, bubbles, data) {
-            if (bubbles === undefined) {
+            if (tools.isNull(bubbles)) {
                 bubbles = false;
             }
-            if (data === undefined) {
+            if (tools.isNull(data)) {
                 data = null;
             }
             this.mType = type;

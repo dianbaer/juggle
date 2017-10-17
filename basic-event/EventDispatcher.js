@@ -1,7 +1,7 @@
 (function (window) {
     if (!window.basic) window.basic = {};
     var eventPool = window.basic.eventPool;
-    var arrayTools = window.basic.arrayTools;
+    var tools = window.basic.tools;
     var sBubbleChains = [];
     var functionMapping = [];
     /**
@@ -17,13 +17,13 @@
         this.isEventDispatcher = true;
         /** 添加监听,同一个函数只能添加一种类型的监听，多余的忽略，在监听的时候动态的创建，节省资源（无回调） * */
         this.addEventListener = function (type, listener, parent) {
-            if (this.mEventListeners === null)
+            if (tools.isNull(this.mEventListeners))
                 this.mEventListeners = [];
             var listeners = this.mEventListeners[type];
-            if (listeners === null || listeners === undefined) {
+            if (tools.isNull(listeners)) {
                 this.mEventListeners[type] = [listener];
                 functionMapping[listener] = parent;
-            } else if (arrayTools.indexOf(listeners, listener) === -1) {
+            } else if (tools.indexOf(listeners, listener) === -1) {
                 listeners.push(listener);
                 functionMapping[listener] = parent;
             }
@@ -64,7 +64,7 @@
         this.dispatchEvent = function (event) {
             var bubbles = event.mBubbles;
 
-            if (!bubbles && (this.mEventListeners === null || !(event.mType in this.mEventListeners)))
+            if (!bubbles && (tools.isNull(this.mEventListeners) || !(event.mType in this.mEventListeners)))
                 return; // no need to do anything
 
             // we save the current target and restore it later;
@@ -86,7 +86,7 @@
         /** 这里的回调，可能增加事件无所谓，因为加的事件在长度之外，也可能删除事件，删除事件已经解决了这个问题，创建新的数组* */
         this.invokeEvent = function (event) {
             var listeners = this.mEventListeners ? this.mEventListeners[event.mType] : null;
-            var numListeners = listeners === null ? 0 : listeners.length;
+            var numListeners = tools.isNull(listeners) ? 0 : listeners.length;
 
             if (numListeners) {
                 // 这个this，并不是发事件的那个显示对象，谁调的，就是谁
@@ -157,10 +157,10 @@
         };
         /** 发布事件用内部的事件池，执行事件发布之后，然后再放入事件池，如果是冒泡或者自己有这个事件 才去发布事件，这个判断增加效率，* */
         this.dispatchEventWith = function (type, bubbles, data) {
-            if (bubbles === undefined) {
+            if (tools.isNull(bubbles)) {
                 bubbles = false;
             }
-            if (data === undefined) {
+            if (tools.isNull(data)) {
                 data = null;
             }
             if (bubbles || this.hasEventListener(type)) {

@@ -1,6 +1,6 @@
 (function (window) {
     if (!window.basic) window.basic = {};
-    var ArrayTools = function () {
+    var Tools = function () {
         /**
          * 判断数组里是否包含该对象
          * @param array
@@ -19,7 +19,15 @@
                 }
             }
             return index;
+        };
+        /**
+         * 判断对象是否为空
+         * @param obj
+         * @returns {boolean}
+         */
+        this.isNull = function (obj) {
+            return obj === null || obj === undefined;
         }
     };
-    window.basic.arrayTools = new ArrayTools();
+    window.basic.tools = new Tools();
 })(window);
