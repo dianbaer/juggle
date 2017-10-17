@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../basic-help/ArrayTools.js" type="text/javascript"></script>
+    <script src="../basic-event/Event.js" type="text/javascript"></script>
+    <script src="../basic-event/EventPool.js" type="text/javascript"></script>
+    <script src="../basic-event/EventDispatcher.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            var event1 = basic.eventPool.fromPool("111", true, "222");
+            var event2 = basic.eventPool.fromPool("333", true, "444");
+            basic.eventPool.toPool(event1);
+            basic.eventPool.toPool(event2);
+            var event3 = basic.eventPool.fromPool("555", true, "666");
+            var event4 = basic.eventPool.fromPool("777", true, "888");
+            var event5 = basic.eventPool.fromPool("999", true, "100");
+
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
