@@ -5,17 +5,23 @@
     var sBubbleChains = [];
     var functionMapping = [];
     /**
-     * 这个类重中之重就是回调之后，不能影响这次循环的调用，一切都有一个衡量点，就是如果注册了这个时间，并且触发时，除非是被阻止冒泡，不能阻止事件触发
-     * 比较重要的几点，如果事件触发了，接受这个事件的对象无法改变自身这一次的监听状态例如
-     * a对象监听函数有b和c，b先收到，在这一次b里面移除c的监听，并不能阻止c收到这次事件
-     * 如果想阻止，可以再b里面把stopsImmediatePropagation设置为true
-     * 接受这个事件的对象可以移除他的上一级的监听，使之无法收到事件（这种做法不合理，本来就不能做）
-     * 如果接受这个事件对象，离开了自己的父类，也不能阻止父类这一次收到这个事件
+     * EventDispatcher.apply(this);继承此类
+     * 支持冒泡，前提冒泡对象的parent不为空并且isDisplayObject是true
+     * 在派发事件的回调函数内将parent设置为null，不能阻止这一次parent接到这次事件
+     * 在派发事件某层级的回调函数内，移除这层级的监听或添加这层级的监听，是不会影响这次派发事件目标的改变的。
+     * 靠长度阻止addEventListener，靠重新创建数组阻止removeEventListener
+     * 但是如果在某层级的回调函数内，移除上层的监听或添加上层的监听，上层本轮会受到影响。
+     * @constructor
      */
     var EventDispatcher = function () {
         this.mEventListeners = null;
         this.isEventDispatcher = true;
-        /** 添加监听,同一个函数只能添加一种类型的监听，多余的忽略，在监听的时候动态的创建，节省资源（无回调） * */
+        /**
+         * 动态创建，同一函数不能重复添加某类型监听（无回调）
+         * @param type
+         * @param listener
+         * @param parent
+         */
         this.addEventListener = function (type, listener, parent) {
             if (tools.isNull(this.mEventListeners))
                 this.mEventListeners = [];
@@ -28,134 +34,119 @@
                 functionMapping[listener] = parent;
             }
         };
-        /** 移除监听，这里面临时创建了一个数组，存还需要在监听的函数，这里能创建大量的临时数组，这是有意义的，因为回调的时候可能会删除事件，这个删除事件，不能影响这一次的遍历（无回调）* */
+        /**
+         * 移除监听，临时数组能够阻止派发事件回调函数移除事件带来的本轮影响（无回调）
+         * @param type
+         * @param listener
+         */
         this.removeEventListener = function (type, listener) {
             if (this.mEventListeners) {
                 var listeners = this.mEventListeners[type];
                 var numListeners = listeners ? listeners.length : 0;
-
                 if (numListeners > 0) {
-                    // we must not modify the original vector, but work on a copy.
-                    // (see comment in 'invokeEvent')
-
                     var index = 0;
                     var restListeners = [];
-
                     for (var i = 0; i < numListeners; ++i) {
                         var otherListener = listeners[i];
                         if (otherListener !== listener)
                             restListeners[index++] = otherListener;
                     }
-
                     this.mEventListeners[type] = restListeners;
                 }
             }
         };
-        /** 移除这个类型的所有监听，如果不传类型，就移除所有类型的监听（无回调）* */
+        /**
+         * 移除某类型监听，传空则移除所有监听（无回调）
+         * @param type
+         */
         this.removeEventListeners = function (type) {
             if (type && this.mEventListeners)
                 delete this.mEventListeners[type];
             else
                 this.mEventListeners = null;
         };
-        /***************************************************************************
-         * 如果不冒泡并且 （事件字典为空或者字典里没有这个事件）就不发事件，这样提高效率
-         **************************************************************************/
+        /**
+         * 派发事件
+         * @param event
+         */
         this.dispatchEvent = function (event) {
             var bubbles = event.mBubbles;
-
+            //不冒泡并且无监听或者没有此类型监听，返回
             if (!bubbles && (tools.isNull(this.mEventListeners) || !(event.mType in this.mEventListeners)))
-                return; // no need to do anything
-
-            // we save the current target and restore it later;
-            // this allows users to re-dispatch events without creating a clone.
-
-            // 存这个事件最开始设定的目标，执行完毕之后在还原，一般情况下这个目标肯定是空，除非用户自己设定了目标
+                return;
+            //mTarget参数保留，没意义
             var previousTarget = event.mTarget;
             // 设置目标
             event.mTarget = this;
-            // 只有设置冒泡，并且这个目标是显示对象，才去走冒泡逻辑，不然不走，提高效率
+            // 冒泡并且是显示对象
             if (bubbles && this.isDisplayObject)
                 this.bubbleEvent(event);
             else
                 this.invokeEvent(event);
-
             if (previousTarget)
                 event.mTarget = previousTarget;
         };
-        /** 这里的回调，可能增加事件无所谓，因为加的事件在长度之外，也可能删除事件，删除事件已经解决了这个问题，创建新的数组* */
+        /**
+         * 回调，回调前确认长度和移除事件函数中重新创建数组意义非凡
+         * @param event
+         * @returns {*}
+         */
         this.invokeEvent = function (event) {
             var listeners = this.mEventListeners ? this.mEventListeners[event.mType] : null;
             var numListeners = tools.isNull(listeners) ? 0 : listeners.length;
-
             if (numListeners) {
-                // 这个this，并不是发事件的那个显示对象，谁调的，就是谁
+                // mCurrentTarget当前接到事件的对象
                 event.mCurrentTarget = this;
-
-                // we can enumerate directly over the vector, because:
-                // when somebody modifies the list while we're looping,
-                // "addEventListener" is not
-                // problematic, and "removeEventListener" will create a new Vector,
-                // anyway.
-                //回调中新添加的和移除的都不会影响这次调用，数量限制新添加的，移除时创建新数组。
                 for (var i = 0; i < numListeners; ++i) {
                     var listener = listeners[i];
                     var numArgs = listener.length;
-
                     if (numArgs === 0)
                         listener.call(functionMapping[listener]);
                     else if (numArgs === 1)
                         listener.call(functionMapping[listener], event);
                     else
                         listener.call(functionMapping[listener], event, event.mData);
-
+                    //立即阻止事件派发
                     if (event.mStopsImmediatePropagation) {
-                        // 如果这个数组被换掉了，就把这个数组置空把，没用了（回来测试下）
-                        if (!this.mEventListeners || listeners !== this.mEventListeners[event.mType]) {
-                            listeners.length = 0;
-                        }
                         return true;
                     }
                 }
-                // 如果这个数组被换掉了，就把这个数组置空把，没用了（回来测试下）
-                if (!this.mEventListeners || listeners !== this.mEventListeners[event.mType]) {
-                    listeners.length = 0;
-                }
+                //是否阻止冒泡
                 return event.mStopsPropagation;
             } else {
                 return false;
             }
         };
-        /** 把全部监听的对象到头放到一个数组里，防止回调给他们删除，然后执行事件冒泡，这个冒泡的数据组池，提高效率而且必须是数组，因为回调之后再发布事件，还需要创建新的* */
+        /**
+         * 使用了sBubbleChains数组池，减少垃圾回收
+         * 提前将冒泡数组确认存入数组，意义非凡
+         * @param event
+         */
         this.bubbleEvent = function (event) {
-            // we determine the bubble chain before starting to invoke the
-            // listeners.
-            // that way, changes done by the listeners won't affect the bubble
-            // chain.
-
             var chain;
             var element = this;
             var length = 1;
-
             if (sBubbleChains.length > 0) {
                 chain = sBubbleChains.pop();
                 chain[0] = element;
             } else
                 chain = [element];
-
             while ((element = element.parent) !== null)
                 chain[length++] = element;
-
             for (var i = 0; i < length; ++i) {
                 var stopPropagation = chain[i].invokeEvent(event);
                 if (stopPropagation)
                     break;
             }
-
             chain.length = 0;
             sBubbleChains.push(chain);
         };
-        /** 发布事件用内部的事件池，执行事件发布之后，然后再放入事件池，如果是冒泡或者自己有这个事件 才去发布事件，这个判断增加效率，* */
+        /**
+         * 派发事件使用对象池
+         * @param type
+         * @param bubbles
+         * @param data
+         */
         this.dispatchEventWith = function (type, bubbles, data) {
             if (tools.isNull(bubbles)) {
                 bubbles = false;
@@ -163,13 +154,18 @@
             if (tools.isNull(data)) {
                 data = null;
             }
+            //如果冒泡或者自己关注这个事件了
             if (bubbles || this.hasEventListener(type)) {
                 var event = eventPool.fromPool(type, bubbles, data);
                 this.dispatchEvent(event);
                 eventPool.toPool(event);
             }
         };
-        /** 返回是否有这种类型的监听（无回调）* */
+        /**
+         * 是否关注这个事件
+         * @param type
+         * @returns {boolean}
+         */
         this.hasEventListener = function (type) {
             var listeners = this.mEventListeners ? this.mEventListeners[type] : null;
             return listeners ? listeners.length !== 0 : false;
