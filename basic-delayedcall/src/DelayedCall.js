@@ -37,18 +37,18 @@
                         this.mRepeatCount -= 1;
                     this.mCurrentTime = 0;
                     if (this.mArgs === null) {
-                        this.mCall.apply(this);
+                        this.mCall.call(this);
                     } else {
-                        this.mCall.apply(this, this.mArgs);
+                        this.mCall.call(this, this.mArgs);
                     }
                     // 精确一点时间都不浪费
                     this.advanceTime((previousTime + time) - this.mTotalTime);
                 } else {
                     //保存回调的函数和参数
-                    var call1 = this.mCall;
+                    var call = this.mCall;
                     var args = this.mArgs;
                     this.dispatchEventWith(jugglerEventType.REMOVE_FROM_JUGGLER);
-                    call1.apply(this, args);
+                    call.call(this, args);
                 }
             }
         };
