@@ -8,14 +8,62 @@
     <script src="../basic-juggler/dist/basic-juggler.js" type="text/javascript"></script>
     <script src="../basic-tween/src/Transitions.js" type="text/javascript"></script>
     <script src="../basic-tween/src/Tween.js" type="text/javascript"></script>
+    <script src="DisplayObject.js" type="text/javascript"></script>
     <script type="text/javascript">
+        var array = [
+            "easeIn"
+            , "easeOut"
+            , "easeInOut"
+            , "easeOutIn"
+            , "easeInBack"
+            , "easeOutBack"
+            , "easeInOutBack"
+            , "easeOutInBack"
+            , "easeInElastic"
+            , "easeOutElastic"
+            , "easeInOutElastic"
+            , "easeOutInElastic"
+            , "easeInBounce"
+            , "easeOutBounce"
+            , "easeInOutBounce"
+            , "easeOutInBounce"
+            , "linear"
+        ];
+        var num = 0;
+        function onRepeat() {
+            num++;
+            if (num % 2 === 0) {
+                var string = array.shift();
+                tween.setTransition(string);
+                document.getElementById("tween_type").value = string;
+                array.push(string);
+            }
+
+        }
+        var tween;
 
         window.onload = function () {
-
+            document.getElementById("tween_type").value = "linear";
+            var display = new DisplayObject(document.getElementById("tween_div"));
+            display.setAlpha(1);
+            display.setX(100);
+            display.setY(100);
+            tween = new basic.Tween(display, 2);
+            tween.mReverse = true;
+            tween.mRepeatCount = 0;
+            tween.mRepeatDelay = 0.5;
+            tween.setDelay(1);
+            tween.animate(display.getX, display.setX, 800);
+            tween.animate(display.getY, display.setY, 400);
+            tween.mOnRepeat = onRepeat;
+            basic.jugglerManager.juggler.add(tween);
         }
     </script>
 </head>
 <body>
+<div><label id="tween_type" style="font-size: 12px;position: absolute;top: 20px;left: 200px">XXXXX</label></div>
+<div style="background: #ffeca4;position: absolute;top: 100px;left: 100px; width: 800px;height: 400px;"></div>
+<div id="tween_div" style="width: 100px; height: 100px; background: #ff6de8;"></div>
 
 </body>
 </html>
