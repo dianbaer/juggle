@@ -35,7 +35,7 @@
             if (num % 2 === 0) {
                 var string = array.shift();
                 tween.setTransition(string);
-                document.getElementById("tween_type").value = string;
+                document.getElementById("tween_type").innerHTML = string;
                 array.push(string);
             }
 
@@ -43,7 +43,7 @@
         var tween;
 
         window.onload = function () {
-            document.getElementById("tween_type").value = "linear";
+            document.getElementById("tween_type").innerHTML = "linear";
             var display = new DisplayObject(document.getElementById("tween_div"));
             display.setAlpha(1);
             display.setX(100);
@@ -61,7 +61,7 @@
     </script>
 </head>
 <body>
-<div><label id="tween_type" style="font-size: 12px;position: absolute;top: 20px;left: 200px">XXXXX</label></div>
+<div><div id="tween_type" style="font-size: 12px;position: absolute;top: 20px;left: 200px">XXXXX</div></div>
 <div style="background: #ffeca4;position: absolute;top: 100px;left: 100px; width: 800px;height: 400px;"></div>
 <div id="tween_div" style="width: 100px; height: 100px; background: #ff6de8;"></div>
 
