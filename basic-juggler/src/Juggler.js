@@ -30,7 +30,7 @@
          * @param object
          */
         this.remove = function (object) {
-            if (object === null)
+            if (tools.isNull(object))
                 return;
             if (object.isEventDispatcher)
                 object.removeEventListener(jugglerEventType.REMOVE_FROM_JUGGLER, this.onRemove);
