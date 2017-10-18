@@ -212,7 +212,7 @@
                 chain[0] = element;
             } else
                 chain = [element];
-            while ((element = element.parent) !== null)
+            while (!tools.isNull(element = element.parent))
                 chain[length++] = element;
             for (var i = 0; i < length; ++i) {
                 var stopPropagation = chain[i].invokeEvent(event);
