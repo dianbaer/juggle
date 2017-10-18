@@ -30,8 +30,7 @@
         <script src="../basic-help/dist/basic-help.js" type="text/javascript"></script>
         <script src="../basic-event/dist/basic-event.js" type="text/javascript"></script>
         <script src="../basic-juggler/dist/basic-juggler.js" type="text/javascript"></script>
-        <script src="../basic-delayedcall/src/DelayedCall.js" type="text/javascript"></script>
-        <script src="../basic-delayedcall/src/DelayedCallPool.js" type="text/javascript"></script>
+        <script src="../basic-delayedcall/dist/basic-delayedcall.js" type="text/javascript"></script>
         <script type="text/javascript">
             function delayCallFunc(arg) {
                 alert(delayedCall.isComplete());

@@ -54,6 +54,21 @@ basic是一个JavaScirpt基础库，包含事件、动画、消息、http、webs
 [basic-tween如何使用](./basic-tween)
 
 
+>4、延迟回调DelayedCall
+
+
+	npm install basic-delayedcall
+
+
+	basic-delayedcalll是一个精准的延迟回调类。
+
+
+例子：basic-delayedcall-test
+
+
+[basic-delayedcall如何使用](./basic-delayedcall)
+
+
 ### 上传npm包
 
     npm pack
