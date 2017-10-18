@@ -39,6 +39,20 @@ basic是一个JavaScirpt基础库，包含事件、动画、消息、http、webs
 [basic-juggler如何使用](./basic-juggler)
 
 
+>3、动画类Tween
+
+
+	npm install basic-tween
+
+
+	basic-tween是Tween类，拥有精准的动画。
+
+
+例子：basic-tween-test
+
+
+[basic-tween如何使用](./basic-tween)
+
 
 ### 上传npm包
 
