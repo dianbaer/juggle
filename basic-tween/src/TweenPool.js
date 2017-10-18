@@ -15,15 +15,14 @@ function TweenPool() {
     }
 
     this.toPool = function (tween) {
-        // reset any object-references, to make sure we don't prevent any
-        // garbage collection
         tween.mOnStart = tween.mOnUpdate = tween.mOnRepeat = tween.mOnComplete = null;
         tween.mOnStartArgs = tween.mOnUpdateArgs = tween.mOnRepeatArgs = tween.mOnCompleteArgs = null;
         tween.mTarget = null;
         tween.mTransitionFunc = null;
-        // xp这里增加清除nextTween
+        tween.mProperties.length = 0;
+        tween.mStartValues.length = 0;
+        tween.mEndValues.length = 0;
         tween.mNextTween = null;
-        // tween.removeEventListeners();
         this.sTweenPool[this.sTweenPool.length] = tween;
     }
 }
