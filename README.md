@@ -24,6 +24,21 @@ basic是一个JavaScirpt基础库，包含事件、动画、消息、http、webs
 [basic-event如何使用](./basic-event)
 
 
+>2、动画管理Juggler
+
+
+	npm install basic-juggler
+
+
+	basic-event是一个动画管理类，可以添加与移除动画。
+
+
+例子：basic-juggler-test
+
+
+[basic-juggler如何使用](./basic-juggler)
+
+
 
 ### 上传npm包
 
