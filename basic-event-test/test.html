@@ -33,6 +33,7 @@
         //关注事件的函数类
         function Class1() {
             this.operate = function (event, data) {
+                this;
                 alert(event.mCurrentTarget.toString());
             };
         }
