@@ -1,7 +1,7 @@
 # basic-delayedcall
 
 
-[![npm](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/basic-delayedcall)
+
 
 # basic-delayedcall是一个精准的延迟回调类
 

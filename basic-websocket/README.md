@@ -1,6 +1,6 @@
 # basic-websocket
 
-[![npm](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/basic-websocket)
+
 
 # basic-websocket是一个支持事件派发的websocket客户端
 

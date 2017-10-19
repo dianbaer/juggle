@@ -1,6 +1,6 @@
 # basic-juggler
 
-[![npm](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/basic-juggler)
+
 
 # basic-juggler是一个动画管理类，可以添加与移除动画
 
