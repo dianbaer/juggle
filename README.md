@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 
-basic是一个JavaScirpt基础库，包含事件、动画、消息、http、websocket、资源、模块等，帮助开发者快速搭建合理的底层结构。
+basic是一个JavaScirpt基础库，包含事件、Tween、mv框架、http、websocket、资源、模块等，帮助开发者快速搭建合理的底层结构。
 
 
 ![架构图](./basic.bmp "basic.bmp")
