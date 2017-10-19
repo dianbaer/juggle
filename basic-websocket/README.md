@@ -22,6 +22,9 @@
 
 ### 如何使用：
 
+
+```html
+
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -61,6 +64,8 @@
 
     </body>
     </html>
+
+```
 
 websocket服务器（直接可用）：
 

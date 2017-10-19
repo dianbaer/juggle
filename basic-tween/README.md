@@ -19,6 +19,9 @@
 
 DisplayObject.js------------显示对象
 
+
+```html
+
     function DisplayObject(obj) {
         this.obj = obj;
         this.xValue = 0;
@@ -64,8 +67,12 @@ DisplayObject.js------------显示对象
         }
     }
 
+```
 
 test.html------------界面
+
+
+```html
 
     <!DOCTYPE html>
     <html lang="en">
@@ -140,7 +147,7 @@ test.html------------界面
     </body>
     </html>
 
-
+```
 
 
 

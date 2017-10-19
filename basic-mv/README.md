@@ -18,12 +18,18 @@
 
 ### 创建数据代理
 
+```html
+
     function UserProxy() {
         basic.Proxy.apply(this);
      }
 
+```
+
 ### 创建视图控制器
 
+
+```html
 
      function IndexMediator() {
         this.listNotificationInterests = ["test", "test1"];
@@ -38,9 +44,12 @@
         basic.Mediator.apply(this);
     }
 
-
+```
 
 ### 如何使用：
+
+
+```html
 
     <!DOCTYPE html>
     <html lang="en">
@@ -112,6 +121,6 @@
     </html>
 
 
-
+```
 
 	
