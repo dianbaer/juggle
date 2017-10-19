@@ -103,6 +103,21 @@ basic是一个JavaScirpt基础库，包含事件、Tween、mv框架、http、web
 [basic-mv如何使用](./basic-mv)
 
 
+### 7、http客户端
+
+
+	npm install basic-http
+
+
+	basic-http是可以进行事件派发的httpclient库，可以发文件
+
+
+例子：basic-http-test
+
+
+[basic-http如何使用](./basic-http)
+
+
 
 ### 上传npm包
 
