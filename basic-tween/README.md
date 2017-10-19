@@ -1,5 +1,9 @@
 # basic-tween
 
+
+[![npm](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/basic-tween)
+
+
 # basic-tween是Tween类，拥有精准的动画
 
 ### 特点：

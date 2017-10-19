@@ -1,5 +1,6 @@
 # basic-mv
 
+[![npm](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/basic-mv)
 
 # basic-mv是一个mv框架解除数据源与视图控制器，视图控制器之间的耦合性。
 

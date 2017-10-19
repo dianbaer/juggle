@@ -1,6 +1,8 @@
 # basic-http
 
 
+[![npm](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/basic-http)
+
 # basic-http是可以进行事件派发的httpclient库，可以发文件
 
 

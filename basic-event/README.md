@@ -1,5 +1,7 @@
 # basic-event
 
+[![npm](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/basic-event)
+
 # basic-event是一个事件库，可用于解除包含结构，树形结构的耦合性。
 
 
