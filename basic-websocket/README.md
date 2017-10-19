@@ -29,9 +29,7 @@
         <title>Title</title>
         <script src="../basic-help/dist/basic-help.js" type="text/javascript"></script>
         <script src="../basic-event/dist/basic-event.js" type="text/javascript"></script>
-        <script src="../basic-websocket/src/WebSocketConfig.js" type="text/javascript"></script>
-        <script src="../basic-websocket/src/WebSocketEventType.js" type="text/javascript"></script>
-        <script src="../basic-websocket/src/WebSocketClient.js" type="text/javascript"></script>
+        <script src="../basic-websocket/dist/basic-websocket.js" type="text/javascript"></script>
         <script type="text/javascript">
             var websocketClient;
             function onConnect(event) {
@@ -64,7 +62,9 @@
     </body>
     </html>
 
+websocket服务器（直接可用）：
 
+https://github.com/dianbaer/grain/tree/master/grain-threadwebsocket-test
 
 
 
