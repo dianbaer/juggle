@@ -16,6 +16,29 @@
 
     npm install basic-mv
 
+### 创建数据代理
+
+    function UserProxy() {
+        basic.Proxy.apply(this);
+     }
+
+### 创建视图控制器
+
+
+     function IndexMediator() {
+        this.listNotificationInterests = ["test", "test1"];
+        this.handleNotification = function (data) {
+            switch (data.name) {
+                case "test":
+                    break;
+                case "test1":
+                    break;
+            }
+        };
+        basic.Mediator.apply(this);
+    }
+
+
 
 ### 如何使用：
 

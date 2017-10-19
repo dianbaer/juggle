@@ -90,6 +90,22 @@ https://github.com/dianbaer/grain/tree/master/grain-threadwebsocket-test
 [basic-websocket如何使用](./basic-websocket)
 
 
+### 6、mv框架
+
+
+	npm install basic-mv
+
+
+	basic-mv是一个mv框架解除数据源与视图控制器，视图控制器之间的耦合性。
+
+
+例子：basic-mv-test
+
+
+[basic-mv如何使用](./basic-mv)
+
+
+
 ### 上传npm包
 
     npm pack
