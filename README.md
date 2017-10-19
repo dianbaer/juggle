@@ -71,6 +71,25 @@ basic是一个JavaScirpt基础库，包含事件、动画、消息、http、webs
 [basic-delayedcall如何使用](./basic-delayedcall)
 
 
+>5、支持事件派发的websocket客户端
+
+
+	npm install basic-websocket
+
+
+	basic-websocket是一个支持事件派发的websocket客户端
+
+
+例子：basic-websocket-test
+
+服务器例子：
+
+https://github.com/dianbaer/grain/tree/master/grain-threadwebsocket-test
+
+
+[basic-websocket如何使用](./basic-websocket)
+
+
 ### 上传npm包
 
     npm pack
