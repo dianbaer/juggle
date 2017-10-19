@@ -84,6 +84,10 @@ basic是一个JavaScirpt基础库，包含事件、Tween、mv框架、http、web
 
 例子：basic-websocket-test
 
+websocket服务器（直接可用）：
+
+https://github.com/dianbaer/grain/tree/master/grain-threadwebsocket-test
+
 
 [basic-websocket如何使用](./basic-websocket)
 
@@ -113,6 +117,10 @@ basic是一个JavaScirpt基础库，包含事件、Tween、mv框架、http、web
 
 
 例子：basic-http-test
+
+http服务器（直接可用）：
+
+https://github.com/dianbaer/grain/tree/master/grain-httpserver-test
 
 
 [basic-http如何使用](./basic-http)
