@@ -1,5 +1,41 @@
 language: javascript
-install: 
+install:
+  - cd basic-help
+  - npm install -g grunt-cli
+  - npm install
+  - grunt
+  - cd ..
+  - cd basic-event
+  - npm install -g grunt-cli
+  - npm install
+  - grunt
+  - cd ..
+  - cd basic-juggler
+  - npm install -g grunt-cli
+  - npm install
+  - grunt
+  - cd ..
+  - cd basic-tween
+  - npm install -g grunt-cli
+  - npm install
+  - grunt
+  - cd ..
+  - cd basic-delayedcall
+  - npm install -g grunt-cli
+  - npm install
+  - grunt
+  - cd ..
+  - cd basic-websocket
+  - npm install -g grunt-cli
+  - npm install
+  - grunt
+  - cd ..
+  - cd basic-http
+  - npm install -g grunt-cli
+  - npm install
+  - grunt
+  - cd ..
+  - cd basic-mv
   - npm install -g grunt-cli
   - npm install
   - grunt
