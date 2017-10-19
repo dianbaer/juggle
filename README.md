@@ -18,6 +18,7 @@ basic是一个JavaScirpt基础库，包含事件、Tween、mv框架、http、web
 
 
 	basic-event是一个事件库，可用于解除包含结构，树形结构的耦合性。
+	支持冒泡，是构建UI的基石
 
 
 例子：basic-event-test
@@ -81,10 +82,6 @@ basic是一个JavaScirpt基础库，包含事件、Tween、mv框架、http、web
 
 
 例子：basic-websocket-test
-
-服务器例子：
-
-https://github.com/dianbaer/grain/tree/master/grain-threadwebsocket-test
 
 
 [basic-websocket如何使用](./basic-websocket)
