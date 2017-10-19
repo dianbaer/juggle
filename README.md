@@ -11,7 +11,7 @@ basic是一个JavaScirpt基础库，包含事件、动画、消息、http、webs
 ![架构图](./basic.bmp "basic.bmp")
 
 
->1、事件Event
+### 1、事件Event
 
 
 	npm install basic-event
@@ -26,7 +26,7 @@ basic是一个JavaScirpt基础库，包含事件、动画、消息、http、webs
 [basic-event如何使用](./basic-event)
 
 
->2、动画管理Juggler
+### 2、动画管理Juggler
 
 
 	npm install basic-juggler
@@ -41,7 +41,7 @@ basic是一个JavaScirpt基础库，包含事件、动画、消息、http、webs
 [basic-juggler如何使用](./basic-juggler)
 
 
->3、动画类Tween
+### 3、动画类Tween
 
 
 	npm install basic-tween
@@ -56,7 +56,7 @@ basic是一个JavaScirpt基础库，包含事件、动画、消息、http、webs
 [basic-tween如何使用](./basic-tween)
 
 
->4、延迟回调DelayedCall
+### 4、延迟回调DelayedCall
 
 
 	npm install basic-delayedcall
@@ -71,7 +71,7 @@ basic是一个JavaScirpt基础库，包含事件、动画、消息、http、webs
 [basic-delayedcall如何使用](./basic-delayedcall)
 
 
->5、支持事件派发的websocket客户端
+### 5、支持事件派发的websocket客户端
 
 
 	npm install basic-websocket
