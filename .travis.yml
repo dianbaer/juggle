@@ -2,35 +2,35 @@ language: node_js
 node_js:
   - "6"
 install:
-  - cd basic-help
+  - cd juggle-help
   - npm install -g grunt-cli
   - npm install
   - grunt
   - cd ..
-  - cd basic-event
+  - cd juggle-event
   - npm install
   - grunt
   - cd ..
-  - cd basic-juggler
+  - cd juggle-juggler
   - npm install
   - grunt
   - cd ..
-  - cd basic-tween
+  - cd juggle-tween
   - npm install
   - grunt
   - cd ..
-  - cd basic-delayedcall
+  - cd juggle-delayedcall
   - npm install
   - grunt
   - cd ..
-  - cd basic-websocket
+  - cd juggle-websocket
   - npm install
   - grunt
   - cd ..
-  - cd basic-http
+  - cd juggle-http
   - npm install
   - grunt
   - cd ..
-  - cd basic-mv
+  - cd juggle-mv
   - npm install
   - grunt

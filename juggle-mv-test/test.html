@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../juggle-mv/dist/juggle-mv.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function UserProxy() {
+            juggle.Proxy.apply(this);
+            this.getData = function () {
+                //广播消息
+                this.notifyObservers(this.getNotification("test", "getData success"));
+            };
+            this.getData1 = function () {
+                //广播消息
+                this.notifyObservers(this.getNotification("test1", "getData1 success"));
+            };
+            this.getData2 = function () {
+                //广播消息
+                this.notifyObservers(this.getNotification("test2", "getData2 success"));
+            }
+        }
+        function IndexMediator() {
+            this.listNotificationInterests = ["test", "test1"];
+            this.handleNotification = function (data) {
+                switch (data.name) {
+                    case "test":
+                        alert("IndexMediator接到数据" + data.body);
+                        this.notifyObservers(this.getNotification("test1", "im IndexMediator send notify"));
+                        break;
+                    case "test1":
+                        alert("IndexMediator接到数据" + data.body);
+                        break;
+                }
+            };
+            juggle.Mediator.apply(this);
+        }
+        function Index1Mediator() {
+            //必须要有的
+            this.listNotificationInterests = ["test", "test2"];
+            //必须要有
+            this.handleNotification = function (data) {
+                switch (data.name) {
+                    case "test":
+                        alert("Index1Mediator接到数据" + data.body);
+                        break;
+                    case "test2":
+                        alert("Index1Mediator接到数据" + data.body);
+                        break;
+                }
+            };
+            //继承
+            juggle.Mediator.apply(this);
+        }
+        window.onload = function () {
+            var proxy = new UserProxy();
+            var mediator = new IndexMediator();
+            var mediator1 = new Index1Mediator();
+            proxy.getData();
+            proxy.getData1();
+            proxy.getData2();
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

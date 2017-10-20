@@ -1,0 +1,27 @@
+{
+  "name": "juggle-websocket",
+  "version": "1.0.0",
+  "description": "",
+  "main": "juggle-websocket.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dianbaer/juggle"
+  },
+  "keywords": [
+    "juggle","websocket"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-uglify": "^3.0.1"
+  },
+  "dependencies": {
+    "juggle-help": "^1.0.0",
+    "juggle-event": "^1.0.0"
+  }
+}
