@@ -1,40 +1,7 @@
 language: node_js
 node_js:
   - "6"
-install:
-  - cd juggle-help
-  - npm install -g grunt-cli
-  - npm install
-  - grunt
-  - cd ..
-  - cd juggle-event
-  - npm install
-  - grunt
-  - cd ..
-  - cd juggle-juggler
-  - npm install
-  - grunt
-  - cd ..
-  - cd juggle-tween
-  - npm install
-  - grunt
-  - cd ..
-  - cd juggle-delayedcall
-  - npm install
-  - grunt
-  - cd ..
-  - cd juggle-websocket
-  - npm install
-  - grunt
-  - cd ..
-  - cd juggle-http
-  - npm install
-  - grunt
-  - cd ..
-  - cd juggle-mv
-  - npm install
-  - grunt
-  - cd ..
 before_script:
-  - npm install -g gulp-cli
-script: gulp
+  - npm install -g gulp
+  - npm install
+script: npm test
