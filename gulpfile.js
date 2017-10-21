@@ -15,17 +15,19 @@ var transformModule = require('gulp-transform-module');
 var jshint = require('gulp-jshint');
 var pkg = require('./package.json');
 
+
+
+//test
 gulp.task('test', [], function () {
     return gulp
-        .src('test/html/index.html')
-        .pipe(uitest({
-            width: 600,
-            height: 480,
-            hidpi: false,
-            useContentSize: true,
-            show: false
-        }));
+      .src('test/html/index.html')
+      .pipe(uitest({
+        width: 600,
+        height: 480,
+        hidpi: false,
+        useContentSize: true,
+        show: false
+      }));
 });
-gulp.task('default', function() {
-  // 将你的默认的任务代码放在这
-});
+
+gulp.task('default', []);

@@ -5,6 +5,7 @@
   "author": "dianbaer",
   "license": "MIT",
   "main": "juggle-all.js",
+  "typings": "",
   "repository": {
     "type": "git",
     "url": "https://github.com/dianbaer/juggle.git"
@@ -35,5 +36,12 @@
     "should": "^8.0.2",
     "through2": "^2.0.0",
     "uitest": "^1.1.4"
+  },
+  "sources": {
+    "files": [
+      "juggle-help/src/Tools.js"
+    ]
+  },
+  "extensions": {
   }
 }
