@@ -34,3 +34,7 @@ install:
   - cd juggle-mv
   - npm install
   - grunt
+  - cd ..
+before_script:
+  - npm install -g gulp-cli
+script: gulp
