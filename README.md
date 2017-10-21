@@ -1,6 +1,7 @@
 # juggle
 
 
+[![Build Status](https://travis-ci.org/dianbaer/juggle.svg?branch=v1.0)](https://travis-ci.org/dianbaer/juggle)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/c787bc1d8f5045d1acad4164a5388084)](https://www.codacy.com/app/232365732/juggle?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dianbaer/juggle&amp;utm_campaign=Badge_Grade)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
