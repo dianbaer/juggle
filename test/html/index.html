@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>hilo test</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../node_modules/mocha/mocha.css" />
+    <style>
+        html, body{
+            margin:0px;
+            padding: 0px;
+        }
+        #stage{
+            position: absolute !important;
+            top:0px;
+            left:0px;
+        }
+        canvas{
+            position: absolute;
+            top:0px;
+            left:0px;
+        }
+    </style>
+  </head>
+  <body>
+    <div id='stage'></div>
+    <div id="mocha"></div>
+    <script src="../../node_modules/mocha/mocha.js"></script>
+    <script src='../../node_modules/uitest/uitest-mocha-shim.js'></script>
+    <script src='utils.js'></script>
+    <script src="../../node_modules/should/should.js"></script>
+    <script src="../../juggle-help/dist/juggle-help.js"></script>
+    <script src="../../juggle-event/dist/juggle-event.js"></script>
+    <script src="../../juggle-juggler/dist/juggle-juggler.js"></script>
+    <script src="../../juggle-tween/dist/juggle-tween.js"></script>
+    <script src="../DisplayObject.js"></script>
+
+    <script>
+    window._IS_WEB = true;
+    window._IS_TRAVIS = false;
+    if(typeof process === 'object'){
+        window._IS_WEB = false;
+        if(process.env.TEST_FLAG === 'TRAVIS'){
+            window._IS_TRAVIS = true;
+        }
+    }
+    console.log('_IS_WEB:', _IS_WEB);
+    console.log('_IS_TRAVIS:', _IS_TRAVIS);
+
+    _macaca_uitest.setup({
+      ui: 'bdd',
+      timeout: 10000,
+      slow: 5000
+    });
+    </script>
+    <script src="../tweentest.js"></script>
+    <script>
+    _macaca_uitest.run();
+    </script>
+  </body>
+</html>
