@@ -1,14 +1,14 @@
 describe('geom', function () {
-    var matrix;
+    var tween;
     beforeEach('init matrix', function () {
-
+        tween = new juggle.Tween();
     });
 
     describe('Matrix', function () {
         it('concat', function () {
-            var displayObj = {xValue: 100, yValue: 100};
 
-            displayObj.should.eql({xValue: 100, yValue: 100});
+
+            tween.mRepeatCount.should.eql(1);
         });
     });
 });
