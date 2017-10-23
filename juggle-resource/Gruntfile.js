@@ -9,7 +9,7 @@ module.exports = function (grunt) {
             dist: {
                 src: [
                     'src/ResourceEventType.js',//无依赖
-                    'src/Loader.js',//resourceEventType,basic-http,basic-event
+                    'src/Loader.js',//resourceEventType,juggle-http,juggle-event
                     'src/ResourceManager.js'//依赖resourceEventType,Loader
                 ],
                 dest: 'dist/<%= pkg.name %>.js'
