@@ -12,6 +12,15 @@ juggle是一个JavaScirpt基础库，包含事件、Tween、mv框架、http、we
 ![架构图](./juggle.bmp "juggle.bmp")
 
 
+# allinone安装
+
+
+	npm install juggle-all
+	
+	
+
+# 分开使用
+
 ### 1、事件Event
 
 
