@@ -3,7 +3,6 @@
     var eventPool = window.juggle.eventPool;
     var tools = window.juggle.tools;
     var sBubbleChains = [];
-    var functionMapping = [];
     /**
      * EventDispatcher.apply(this);继承此类
      * 支持冒泡，前提冒泡对象的parent不为空并且isDisplayObject是true
@@ -16,6 +15,7 @@
     var EventDispatcher = function () {
         this.mEventListeners = null;
         this.isEventDispatcher = true;
+        this.functionMapping = [];
         /**
          * 动态创建，同一函数不能重复添加某类型监听（无回调）
          * @param type
@@ -28,10 +28,10 @@
             var listeners = this.mEventListeners[type];
             if (tools.isNull(listeners)) {
                 this.mEventListeners[type] = [listener];
-                functionMapping[listener] = parent;
+                this.functionMapping[listener] = parent;
             } else if (tools.indexOf(listeners, listener) === -1) {
                 listeners.push(listener);
-                functionMapping[listener] = parent;
+                this.functionMapping[listener] = parent;
             }
         };
         /**
@@ -101,11 +101,11 @@
                     var listener = listeners[i];
                     var numArgs = listener.length;
                     if (numArgs === 0)
-                        listener.call(functionMapping[listener]);
+                        listener.call(this.functionMapping[listener]);
                     else if (numArgs === 1)
-                        listener.call(functionMapping[listener], event);
+                        listener.call(this.functionMapping[listener], event);
                     else
-                        listener.call(functionMapping[listener], event, event.mData);
+                        listener.call(this.functionMapping[listener], event, event.mData);
                     //立即阻止事件派发
                     if (event.mStopsImmediatePropagation) {
                         return true;

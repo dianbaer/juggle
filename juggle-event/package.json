@@ -1,6 +1,6 @@
 {
   "name": "juggle-event",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "juggle-event.js",
   "scripts": {
@@ -11,7 +11,8 @@
     "url": "https://github.com/dianbaer/juggle"
   },
   "keywords": [
-    "juggle","event"
+    "juggle",
+    "event"
   ],
   "author": "",
   "license": "ISC",
