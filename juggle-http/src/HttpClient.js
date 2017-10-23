@@ -5,6 +5,9 @@
     var HttpClient = function () {
         EventDispatcher.apply(this);
         this.send = function (data, url, header, type, isAsync) {
+            this.data = data;
+            this.url = url;
+            this.header = header;
             var xMLHttpRequest = new XMLHttpRequest();
             if (xMLHttpRequest === null || xMLHttpRequest === undefined) {
                 return false;
@@ -19,6 +22,8 @@
                     type = "post";
                 }
             }
+            this.type = type;
+            this.isAsync = isAsync;
             xMLHttpRequest.open(type, url, isAsync);
             for (var headName in header) {
                 xMLHttpRequest.setRequestHeader(headName, header[headName]);
@@ -49,6 +54,9 @@
             }
         };
         this.sendFile = function (fileList, data, url, header, type, isAsync) {
+            this.data = data;
+            this.url = url;
+            this.header = header;
             var xMLHttpRequest = new XMLHttpRequest();
             if (xMLHttpRequest === null || xMLHttpRequest === undefined) {
                 return false;
@@ -59,6 +67,8 @@
             if (type === null || type === undefined) {
                 type = "post";
             }
+            this.type = type;
+            this.isAsync = isAsync;
             xMLHttpRequest.open(type, url, isAsync);
             for (var headName in header) {
                 xMLHttpRequest.setRequestHeader(headName, header[headName]);
