@@ -127,6 +127,21 @@ https://github.com/dianbaer/grain/tree/master/grain-httpserver-test
 [juggle-http如何使用](./juggle-http)
 
 
+### 8、resource资源
+
+
+	npm install juggle-resource
+
+
+	juggle-resouce是一个资源库，支持加载多资源回调
+
+
+例子：juggle-resource-test
+
+
+[juggle-resource如何使用](./juggle-resource)
+
+
 
 ### 上传npm包
 
