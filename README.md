@@ -127,6 +127,7 @@ https://github.com/dianbaer/grain/tree/master/grain-httpserver-test
 [juggle-http如何使用](./juggle-http)
 
 
+
 ### 8、resource资源
 
 
@@ -140,6 +141,21 @@ https://github.com/dianbaer/grain/tree/master/grain-httpserver-test
 
 
 [juggle-resource如何使用](./juggle-resource)
+
+
+### 9、module资源
+
+
+	npm install juggle-module
+
+
+	juggle-module是模块类，支持模块加载卸载
+
+
+例子：juggle-module-test
+
+
+[juggle-module如何使用](./juggle-module)
 
 
 
