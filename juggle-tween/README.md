@@ -17,6 +17,15 @@
 ### 快速开始：
 
     npm install juggle-tween
+	
+	
+	
+
+线上例子地址：
+
+https://www.threecss.com/juggle-tween-test/test.html
+
+
 
 ### 如何使用：
 
