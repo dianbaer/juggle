@@ -37,7 +37,7 @@ https://github.com/dianbaer/juggle
 例子：juggle-event-test
 
 
-[juggle-event如何使用](./juggle-event)
+[juggle-event了解更多](./juggle-event)
 
 
 ### 2、动画管理Juggler
@@ -52,7 +52,7 @@ https://github.com/dianbaer/juggle
 例子：juggle-juggler-test
 
 
-[juggle-juggler如何使用](./juggle-juggler)
+[juggle-juggler了解更多](./juggle-juggler)
 
 
 ### 3、动画类Tween
@@ -67,7 +67,7 @@ https://github.com/dianbaer/juggle
 例子：juggle-tween-test
 
 
-[juggle-tween如何使用](./juggle-tween)
+[juggle-tween了解更多](./juggle-tween)
 
 线上例子地址：
 
@@ -87,7 +87,7 @@ https://www.threecss.com/juggle-tween-test/test.html
 例子：juggle-delayedcall-test
 
 
-[juggle-delayedcall如何使用](./juggle-delayedcall)
+[juggle-delayedcall了解更多](./juggle-delayedcall)
 
 
 ### 5、支持事件派发的websocket客户端
@@ -106,7 +106,7 @@ websocket服务器（直接可用）：
 https://github.com/dianbaer/grain/tree/master/grain-threadwebsocket-test
 
 
-[juggle-websocket如何使用](./juggle-websocket)
+[juggle-websocket了解更多](./juggle-websocket)
 
 
 ### 6、mv框架
@@ -121,7 +121,7 @@ https://github.com/dianbaer/grain/tree/master/grain-threadwebsocket-test
 例子：juggle-mv-test
 
 
-[juggle-mv如何使用](./juggle-mv)
+[juggle-mv了解更多](./juggle-mv)
 
 
 ### 7、http客户端
@@ -140,7 +140,7 @@ http服务器（直接可用）：
 https://github.com/dianbaer/grain/tree/master/grain-httpserver-test
 
 
-[juggle-http如何使用](./juggle-http)
+[juggle-http了解更多](./juggle-http)
 
 
 
@@ -156,7 +156,7 @@ https://github.com/dianbaer/grain/tree/master/grain-httpserver-test
 例子：juggle-resource-test
 
 
-[juggle-resource如何使用](./juggle-resource)
+[juggle-resource了解更多](./juggle-resource)
 
 
 ### 9、module资源
@@ -171,7 +171,7 @@ https://github.com/dianbaer/grain/tree/master/grain-httpserver-test
 例子：juggle-module-test
 
 
-[juggle-module如何使用](./juggle-module)
+[juggle-module了解更多](./juggle-module)
 
 
 
