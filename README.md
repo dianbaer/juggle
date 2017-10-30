@@ -31,22 +31,49 @@ https://gitee.com/dianbaer/basic
 	
 	
 
-# 分开使用
+## 核心组件介绍
 
 ### 1、事件Event
 
 
-	npm install juggle-event
+npm install juggle-event
 
 
 	juggle-event是一个事件库，可用于解除包含结构，树形结构的耦合性。
 	支持冒泡，是构建UI的基石
+	
+	function DisplayObj() {
+		juggle.EventDispatcher.apply(this);
+	}
+	function DisplayObjContainer() {
+		DisplayObj.apply(this);
+		this.addChild = function (child) {
+			child.parent = this;
+		};
+		this.removeChild = function (child) {
+			child.parent = null;
+		};
+	}
+	//创建DisplayObj对象
+	var obj = new DisplayObj();
+	//创建DisplayObjContainer对象
+	var container = new DisplayObjContainer();
+	//将container是obj的容器
+	container.addChild(obj);
+	//添加监听
+	obj.addEventListener("aaa", function(event){}, this);
+	container.addEventListener("aaa", function(event){},this);
+	//发布事件
+	obj.dispatchEventWith("aaa", true, "bbb");
 
 
-例子：juggle-event-test
+>例子：
 
 
-[juggle-event了解更多](./juggle-event)
+[juggle-event-test](./juggle-event-test)
+
+
+[juggle-event详细介绍](./juggle-event)
 
 
 ### 2、动画管理Juggler
@@ -61,7 +88,7 @@ https://gitee.com/dianbaer/basic
 例子：juggle-juggler-test
 
 
-[juggle-juggler了解更多](./juggle-juggler)
+[juggle-juggler详细介绍](./juggle-juggler)
 
 
 ### 3、动画类Tween
@@ -76,7 +103,7 @@ https://gitee.com/dianbaer/basic
 例子：juggle-tween-test
 
 
-[juggle-tween了解更多](./juggle-tween)
+[juggle-tween详细介绍](./juggle-tween)
 
 线上例子地址：
 
@@ -96,7 +123,7 @@ https://www.threecss.com/juggle-tween-test/test.html
 例子：juggle-delayedcall-test
 
 
-[juggle-delayedcall了解更多](./juggle-delayedcall)
+[juggle-delayedcall详细介绍](./juggle-delayedcall)
 
 
 ### 5、支持事件派发的websocket客户端
@@ -115,7 +142,7 @@ websocket服务器（直接可用）：
 https://github.com/dianbaer/grain/tree/master/grain-threadwebsocket-test
 
 
-[juggle-websocket了解更多](./juggle-websocket)
+[juggle-websocket详细介绍](./juggle-websocket)
 
 
 ### 6、mv框架
@@ -130,7 +157,7 @@ https://github.com/dianbaer/grain/tree/master/grain-threadwebsocket-test
 例子：juggle-mv-test
 
 
-[juggle-mv了解更多](./juggle-mv)
+[juggle-mv详细介绍](./juggle-mv)
 
 
 ### 7、http客户端
@@ -149,7 +176,7 @@ http服务器（直接可用）：
 https://github.com/dianbaer/grain/tree/master/grain-httpserver-test
 
 
-[juggle-http了解更多](./juggle-http)
+[juggle-http详细介绍](./juggle-http)
 
 
 
@@ -165,7 +192,7 @@ https://github.com/dianbaer/grain/tree/master/grain-httpserver-test
 例子：juggle-resource-test
 
 
-[juggle-resource了解更多](./juggle-resource)
+[juggle-resource详细介绍](./juggle-resource)
 
 
 ### 9、module资源
@@ -180,7 +207,7 @@ https://github.com/dianbaer/grain/tree/master/grain-httpserver-test
 例子：juggle-module-test
 
 
-[juggle-module了解更多](./juggle-module)
+[juggle-module详细介绍](./juggle-module)
 
 
 
