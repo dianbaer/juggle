@@ -36,7 +36,7 @@ https://gitee.com/dianbaer/basic
 ### 1、事件Event
 
 
-npm install juggle-event
+	npm install juggle-event
 
 
 	juggle-event是一个事件库，可用于解除包含结构，树形结构的耦合性。
@@ -85,7 +85,10 @@ npm install juggle-event
 	juggle-event是一个动画管理类，可以添加与移除动画。
 
 
-例子：juggle-juggler-test
+>例子：
+
+
+[juggle-juggler-test](./juggle-juggler-test)
 
 
 [juggle-juggler详细介绍](./juggle-juggler)
@@ -100,14 +103,17 @@ npm install juggle-event
 	juggle-tween是Tween类，拥有精准的动画。
 
 
-例子：juggle-tween-test
+>例子：
+
+
+[juggle-tween-test](./juggle-tween-test)
+
+线上例子地址：
+https://www.threecss.com/juggle-tween-test/test.html
 
 
 [juggle-tween详细介绍](./juggle-tween)
 
-线上例子地址：
-
-https://www.threecss.com/juggle-tween-test/test.html
 
 
 
@@ -120,13 +126,40 @@ https://www.threecss.com/juggle-tween-test/test.html
 	juggle-delayedcalll是一个精准的延迟回调类。
 
 
-例子：juggle-delayedcall-test
+>例子：
+
+
+[juggle-delayedcall-test](./juggle-delayedcall-test)
 
 
 [juggle-delayedcall详细介绍](./juggle-delayedcall)
 
 
-### 5、支持事件派发的websocket客户端
+
+
+
+### 5、mv框架
+
+
+	npm install juggle-mv
+
+
+	juggle-mv是一个mv框架解除数据源与视图控制器，视图控制器之间的耦合性。
+
+
+例子：
+
+
+[juggle-mv-test](./juggle-mv-test)
+
+
+[juggle-mv详细介绍](./juggle-mv)
+
+
+## 其他组件介绍
+
+
+### 1、支持事件派发的websocket客户端
 
 
 	npm install juggle-websocket
@@ -135,7 +168,9 @@ https://www.threecss.com/juggle-tween-test/test.html
 	juggle-websocket是一个支持事件派发的websocket客户端
 
 
-例子：juggle-websocket-test
+例子：
+
+[juggle-websocket-test](./juggle-websocket-test)
 
 websocket服务器（直接可用）：
 
@@ -145,22 +180,7 @@ https://github.com/dianbaer/grain/tree/master/grain-threadwebsocket-test
 [juggle-websocket详细介绍](./juggle-websocket)
 
 
-### 6、mv框架
-
-
-	npm install juggle-mv
-
-
-	juggle-mv是一个mv框架解除数据源与视图控制器，视图控制器之间的耦合性。
-
-
-例子：juggle-mv-test
-
-
-[juggle-mv详细介绍](./juggle-mv)
-
-
-### 7、http客户端
+### 2、http客户端
 
 
 	npm install juggle-http
@@ -169,7 +189,10 @@ https://github.com/dianbaer/grain/tree/master/grain-threadwebsocket-test
 	juggle-http是可以进行事件派发的httpclient库，可以发文件
 
 
-例子：juggle-http-test
+例子：
+
+
+[juggle-http-test](./juggle-http-test)
 
 http服务器（直接可用）：
 
@@ -180,7 +203,7 @@ https://github.com/dianbaer/grain/tree/master/grain-httpserver-test
 
 
 
-### 8、resource资源
+### 3、resource资源
 
 
 	npm install juggle-resource
@@ -189,13 +212,16 @@ https://github.com/dianbaer/grain/tree/master/grain-httpserver-test
 	juggle-resouce是一个资源库，支持加载多资源回调
 
 
-例子：juggle-resource-test
+例子：
+
+
+[juggle-resource-test](./juggle-resource-test)
 
 
 [juggle-resource详细介绍](./juggle-resource)
 
 
-### 9、module资源
+### 4、module资源
 
 
 	npm install juggle-module
@@ -204,7 +230,10 @@ https://github.com/dianbaer/grain/tree/master/grain-httpserver-test
 	juggle-module是模块类，支持模块加载卸载
 
 
-例子：juggle-module-test
+例子：
+
+
+[juggle-module-test](./juggle-module-test)
 
 
 [juggle-module详细介绍](./juggle-module)
