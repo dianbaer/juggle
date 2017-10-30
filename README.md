@@ -35,12 +35,23 @@ https://gitee.com/dianbaer/basic
 
 ### 1、事件Event
 
+juggle-event是一个事件库，可用于解除包含结构，树形结构的耦合性，支持冒泡，是构建UI的基石。
 
+
+	1、支持冒泡，前提冒泡对象的parent不为空并且isDisplayObject是true
+
+    2、在派发事件的回调函数内将parent设置为null，不能阻止这一次parent接到这次事件
+
+    3、在派发事件某层级的回调函数内，移除这层级的监听或添加这层级的监听，是不会影响这次派发事件目标的改变的。
+
+    4、但是如果在某层级的回调函数内，移除上层的监听或添加上层的监听，上层本轮会受到影响。
+
+安装：	
+	
 	npm install juggle-event
 
 
-	juggle-event是一个事件库，可用于解除包含结构，树形结构的耦合性。
-	支持冒泡，是构建UI的基石
+代码示例：
 	
 	function DisplayObj() {
 		juggle.EventDispatcher.apply(this);
@@ -79,10 +90,35 @@ https://gitee.com/dianbaer/basic
 ### 2、动画管理Juggler
 
 
+juggle-event是一个动画管理类，可以添加与移除动画。
+
+
+	1、回调中新加入的动画不能在这一次被调度，因为没有经历时间过程这是合理的
+	
+    2、回调中移除的分两种可能，已经在本次调度的无影响，没有在本次调度的取消本次调度
+
+安装：
+
 	npm install juggle-juggler
 
 
-	juggle-event是一个动画管理类，可以添加与移除动画。
+代码示例：
+
+	
+	function View() {
+		this.advanceTime = function (time) {
+		}
+	}
+	function Movie() {
+		juggle.EventDispatcher.apply(this);
+		this.advanceTime = function (time) {
+
+		}
+	}
+	var view = new View();
+    var movie = new Movie();
+	juggle.jugglerManager.juggler.add(view);
+	juggle.jugglerManager.juggler.add(movie);
 
 
 >例子：
@@ -97,10 +133,75 @@ https://gitee.com/dianbaer/basic
 ### 3、动画类Tween
 
 
+juggle-tween是Tween类，拥有精准的动画。
+
+
+	1、每次调用都是开始值+（终点-起点）*（经过时间/总时间），这是最稳定的，没有任何误差
+	
+    2、连续调度，如果一次完成，剩余时间再次利用不浪费
+
+
+安装：
+
 	npm install juggle-tween
+	
+	
+代码示例：
 
 
-	juggle-tween是Tween类，拥有精准的动画。
+	function DisplayObject(obj) {
+		this.obj = obj;
+		this.xValue = 0;
+		this.yValue = 0;
+		this.alphaValue = 0;
+		this.visibility = "visible";
+		this.getX = function () {
+			return this.xValue;
+		};
+		this.setX = function (value) {
+			this.xValue = value;
+			this.draw();
+		};
+		this.getY = function () {
+			return this.yValue;
+		};
+		this.setY = function (value) {
+			this.yValue = value;
+			this.draw();
+		};
+		this.getAlpha = function () {
+			return this.alphaValue;
+		};
+		this.setAlpha = function (value) {
+			this.alphaValue = value;
+			this.draw();
+		};
+		this.setVisible = function (value) {
+			if (value === true) {
+				this.visibility = "visible";
+			} else {
+				this.visibility = "hidden";
+			}
+			this.draw();
+		};
+		this.draw = function () {
+			this.obj.style.position = "absolute";
+			this.obj.style.top = this.yValue + "px";
+			this.obj.style.left = this.xValue + "px";
+			this.obj.style.opacity = this.alphaValue;
+			this.obj.style.filter = "alpha(opacity=" + (this.alphaValue * 100) + "%)";
+			this.obj.style.visibility = this.visibility;
+		}
+	}
+
+	var display = new DisplayObject(document.getElementById("tween_div"));
+	display.setAlpha(1);
+	display.setX(100);
+	display.setY(100);
+	tween = juggle.tweenPool.fromPool(display, 2);
+	tween.animate(display.getX, display.setX, 800);
+	tween.animate(display.getY, display.setY, 400);
+	juggle.jugglerManager.juggler.add(tween);
 
 
 >例子：
@@ -109,6 +210,7 @@ https://gitee.com/dianbaer/basic
 [juggle-tween-test](./juggle-tween-test)
 
 线上例子地址：
+
 https://www.threecss.com/juggle-tween-test/test.html
 
 
@@ -119,11 +221,25 @@ https://www.threecss.com/juggle-tween-test/test.html
 
 ### 4、延迟回调DelayedCall
 
+juggle-delayedcalll是一个精准的延迟回调类。
+
+
+	1、连续调度，如果一次完成，剩余时间再次利用不浪费
+
+安装：
 
 	npm install juggle-delayedcall
+	
+	
+代码示例：
+	
+	function delayCallFunc(arg) {
+		alert(delayedCall.isComplete());
+	}
 
-
-	juggle-delayedcalll是一个精准的延迟回调类。
+	var delayedCall = juggle.delayedCallPool.fromPool(delayCallFunc, 1, "1111");
+	delayedCall.mRepeatCount = 5;
+	juggle.jugglerManager.juggler.add(delayedCall);
 
 
 >例子：
@@ -136,18 +252,54 @@ https://www.threecss.com/juggle-tween-test/test.html
 
 
 
-
-
 ### 5、mv框架
 
 
+juggle-mv是一个mv框架解除数据源与视图控制器，视图控制器之间的耦合性。
+
+
+	1、严密的闭包封装，用户只需关心数据代理proxy与视图控制器mediator的开发
+	
+
+安装：
+
 	npm install juggle-mv
+	
+	
+代码示例：
+
+	function UserProxy() {
+		juggle.Proxy.apply(this);
+		this.getData = function () {
+			//广播消息
+			this.notifyObservers(this.getNotification("test", "getData success"));
+		};
+		this.getData1 = function () {
+			//广播消息
+			this.notifyObservers(this.getNotification("test1", "getData1 success"));
+		};
+	}
+	function IndexMediator() {
+		this.listNotificationInterests = ["test", "test1"];
+		this.handleNotification = function (data) {
+			switch (data.name) {
+				case "test":
+					alert("IndexMediator接到数据" + data.body);
+					break;
+				case "test1":
+					alert("IndexMediator接到数据" + data.body);
+					break;
+			}
+		};
+		juggle.Mediator.apply(this);
+	}
+	var proxy = new UserProxy();
+	var mediator = new IndexMediator();
+	proxy.getData();
+	proxy.getData1();
 
 
-	juggle-mv是一个mv框架解除数据源与视图控制器，视图控制器之间的耦合性。
-
-
-例子：
+>例子：
 
 
 [juggle-mv-test](./juggle-mv-test)
@@ -156,19 +308,22 @@ https://www.threecss.com/juggle-tween-test/test.html
 [juggle-mv详细介绍](./juggle-mv)
 
 
+
+
 ## 其他组件介绍
 
 
 ### 1、支持事件派发的websocket客户端
 
 
+juggle-websocket是一个支持事件派发的websocket客户端
+
+安装：
+
 	npm install juggle-websocket
 
 
-	juggle-websocket是一个支持事件派发的websocket客户端
-
-
-例子：
+>例子：
 
 [juggle-websocket-test](./juggle-websocket-test)
 
@@ -183,13 +338,16 @@ https://github.com/dianbaer/grain/tree/master/grain-threadwebsocket-test
 ### 2、http客户端
 
 
+juggle-http是可以进行事件派发的httpclient库，可以发文件
+
+
+安装：
+
+
 	npm install juggle-http
 
-
-	juggle-http是可以进行事件派发的httpclient库，可以发文件
-
-
-例子：
+	
+>例子：
 
 
 [juggle-http-test](./juggle-http-test)
@@ -206,13 +364,15 @@ https://github.com/dianbaer/grain/tree/master/grain-httpserver-test
 ### 3、resource资源
 
 
+juggle-resouce是一个资源库，支持加载多资源回调
+
+安装：
+
+
 	npm install juggle-resource
 
 
-	juggle-resouce是一个资源库，支持加载多资源回调
-
-
-例子：
+>例子：
 
 
 [juggle-resource-test](./juggle-resource-test)
@@ -224,13 +384,15 @@ https://github.com/dianbaer/grain/tree/master/grain-httpserver-test
 ### 4、module资源
 
 
+juggle-module是模块类，支持模块加载卸载
+
+安装：
+
+
 	npm install juggle-module
 
 
-	juggle-module是模块类，支持模块加载卸载
-
-
-例子：
+>例子：
 
 
 [juggle-module-test](./juggle-module-test)
