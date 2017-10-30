@@ -9,10 +9,19 @@
 juggle是一个JavaScirpt基础库，包含事件、Tween、mv框架、http、websocket、资源、模块等，帮助开发者快速搭建合理的底层结构。
 
 
+## juggle架构图（深颜色是核心组件强烈推荐，具有不错的特性）
+
+
 ![架构图](./juggle.png "juggle.png")
 
 
+### github地址：
+
 https://github.com/dianbaer/juggle
+
+### 码云地址：
+
+https://gitee.com/dianbaer/basic
 
 
 # allinone安装
