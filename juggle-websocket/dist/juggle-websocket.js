@@ -96,7 +96,7 @@
          * @param event
          */
         this.onMessage = function (event) {
-            var data = eval('(' + event.data + ')');
+            var data = JSON.parse(event.data);
             if (data[webSocketConfig.WSOPCODE] === null || data[webSocketConfig.WSOPCODE] === undefined) {
                 return;
             }
