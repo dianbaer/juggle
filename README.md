@@ -6,7 +6,7 @@
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 
-## juggle是一个JavaScirpt基础库，包含事件、Tween、mv框架、http、websocket、资源、模块等，帮助开发者快速搭建合理的底层结构。
+## juggle是一个松耦合的JavaScirpt基础组件库。共1374行代码，平均每个组件100行代码，渐进并极易学习使用。包含事件、Tween、mv框架、http、websocket、资源、模块等，按需选择组件，不绑架开发者。
 
 ## github 互star 互赞，及此项目问题反馈与答疑QQ群：537982451
 
