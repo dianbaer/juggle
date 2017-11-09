@@ -29,7 +29,8 @@ module.exports = function (grunt) {
                     'juggle-resource/src/Loader.js',//resourceEventType,juggle-http,juggle-event
                     'juggle-resource/src/ResourceManager.js',//依赖resourceEventType,Loader
 					'juggle-mv/src/ViewManager.js',//无依赖
-					'juggle-module/src/ModuleManager.js'//依赖juggle-resource
+					'juggle-module/src/ModuleManager.js',//依赖juggle-resource
+					'juggle-httpfilter/src/HttpFilter.js'//依赖juggle-http
                 ],
                 dest: 'dist/<%= pkg.name %>.js'
             }
