@@ -1,0 +1,101 @@
+# juggle-httpfilter
+
+
+# juggle-httpfilter是一个过滤器，可以将某些返回认为是错误的回复
+
+
+
+### 依赖juggle-help，juggle-event，juggle-http
+
+
+### 快速开始：
+
+
+    npm install juggle-httpfilter
+
+
+### 如何使用：
+
+```html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../juggle-help/dist/juggle-help.js" type="text/javascript"></script>
+    <script src="../juggle-event/dist/juggle-event.js" type="text/javascript"></script>
+    <script src="../juggle-http/dist/juggle-http.js" type="text/javascript"></script>
+    <script src="../juggle-httpfilter/src/HttpFilter.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function CheckTest() {
+            this.check = function (result) {
+                if (result.hOpCode === "0")
+                    return false;
+                return true;
+            }
+        }
+        function success(result) {
+            alert("发送post请求返回" + JSON.stringify(result));
+        }
+        function error() {
+            alert("发送post请求返回错误");
+        }
+        function successFile(result) {
+            alert("发送文件请求" + JSON.stringify(result));
+        }
+        function errorFile() {
+            alert("发送文件请求返回错误");
+        }
+        window.onload = function () {
+            window.juggle.httpFilter.addFilter(new CheckTest());
+
+            var data = {
+                'hOpCode': '1',
+                'userName': 'hello',
+                'userPassword': '123456'
+            };
+            var header = [];
+            header["token"] = "sadwadawdwad";
+            window.juggle.httpFilter.send(data, "http://localhost:8080/grain-httpserver-test/s", header, null, null, this, success, error);
+
+            var data1 = {
+                'hOpCode': '6',
+                'userName': 'hello',
+                'userPassword': '123456'
+            };
+            var header1 = [];
+            header1["token"] = "sadwadawdwad";
+            window.juggle.httpFilter.send(data1, "http://localhost:8080/grain-httpserver-test/s", header1, null, null, this, success, error);
+
+            document.getElementById("sendDemoTest").addEventListener("click", sendFileTest);
+        };
+        function sendFileTest() {
+            var obj = document.getElementById("userImg");
+            var data = {
+                'hOpCode': '1',
+                'userName': 'hello',
+                'userPassword': '123456'
+            };
+            var header = [];
+            header["token"] = "sadwadawdwad";
+            window.juggle.httpFilter.sendFile(obj.files, data, "http://localhost:8080/grain-httpserver-test/s", header, null, null, this, successFile, errorFile);
+        }
+    </script>
+</head>
+<body>
+<div>
+    <input type="file" id="userImg" name="uploadFiles"/>
+    <input type="button" value="发送请求" id="sendDemoTest"/>
+</div>
+</body>
+</html>
+
+```
+
+
+http服务器（直接可用）：
+
+https://github.com/dianbaer/grain/tree/master/grain-httpserver-test
+
+	
