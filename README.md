@@ -6,43 +6,19 @@
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 
-## juggle是一个松耦合的JavaScirpt基础组件库。共1374行代码，平均每个组件100行代码，渐进并极易学习使用。包含事件、Tween、mv框架、http、websocket、资源、模块等，按需选择组件，不绑架开发者。
+## juggle是一个极简的、组件式的js框架。无依赖，完美闭包，灵活且适合渐进学习，可与任何框架整合。包含（事件、Tween、mv框架、http、websocket、资源、模块）等组件，按需选择组件，不绑架开发者。
 
 
-## juggle架构图（深颜色是核心组件强烈推荐，具有不错的特性）
+## juggle架构图及其依赖关系（深颜色的是核心组件强烈推荐）
 
 
 ![架构图](./juggle.png "juggle.png")
 
 
-### github地址：
-
-https://github.com/dianbaer/juggle
-
-### 码云地址：
-
-https://gitee.com/dianbaer/basic
+## allinone安装
 
 
-### 基于juggle开发的项目
-
-anyupload是一个极度纯净的上传插件，通过简单调整就可以融入到任何项目，支持多文件上传、上传速率动态控制、真实进度监控kb/s、分块生成MD5、分块上传、MD5校验秒传、暂停、取消等。
-
-https://github.com/dianbaer/anyupload
-
-https://gitee.com/dianbaer/anyupload
-
-anychat是一个极简纯净的websocket聊天插件，支持对接任何身份系统，嵌入方只需提供三个API即可进行实时通讯。支持个人聊天、群聊天、上下线、查看聊天记录、离线消息推送等，服务器绝对控制权的推送机制，合理的线程设计，支持mongodb存储聊天记录，天生的嵌入式支持。 
-
-https://github.com/dianbaer/anychat
-
-https://gitee.com/dianbaer/anychat
-
-
-# allinone安装
-
-
-	npm install juggle-all
+& npm install juggle-all
 	
 	
 
@@ -418,6 +394,29 @@ juggle-module是模块类，支持模块加载卸载
 
 [juggle-module详细介绍](./juggle-module)
 
+
+### github地址：
+
+https://github.com/dianbaer/juggle
+
+### 码云地址：
+
+https://gitee.com/dianbaer/basic
+
+
+### 基于juggle开发的项目
+
+anyupload是一个极度纯净的上传插件，通过简单调整就可以融入到任何项目，支持多文件上传、上传速率动态控制、真实进度监控kb/s、分块生成MD5、分块上传、MD5校验秒传、暂停、取消等。
+
+https://github.com/dianbaer/anyupload
+
+https://gitee.com/dianbaer/anyupload
+
+anychat是一个极简纯净的websocket聊天插件，支持对接任何身份系统，嵌入方只需提供三个API即可进行实时通讯。支持个人聊天、群聊天、上下线、查看聊天记录、离线消息推送等，服务器绝对控制权的推送机制，合理的线程设计，支持mongodb存储聊天记录，天生的嵌入式支持。 
+
+https://github.com/dianbaer/anychat
+
+https://gitee.com/dianbaer/anychat
 
 
 ### 上传npm包
