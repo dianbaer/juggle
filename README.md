@@ -1,45 +1,48 @@
 # juggle
 
-
 [![Build Status](https://travis-ci.org/dianbaer/juggle.svg?branch=master)](https://travis-ci.org/dianbaer/juggle)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/c787bc1d8f5045d1acad4164a5388084)](https://www.codacy.com/app/232365732/juggle?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dianbaer/juggle&amp;utm_campaign=Badge_Grade)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 
-## juggle是一个极简的、组件式的js框架。无依赖，完美闭包，灵活且适合渐进学习，可与任何框架整合。包含（事件、Tween、mv框架、http、websocket、资源、模块）等组件，按需选择组件，不绑架开发者。
+## juggle是一个极简的、组件式的js框架。无依赖，完美闭包，灵活且适合渐进学习，可与任何框架整合。包含（支持冒泡的事件、Tween、mv框架、http、websocket、资源、模块）等组件，按需选择组件，不绑架开发者。
 
 
 ## juggle架构图及其依赖关系（深颜色的是核心组件强烈推荐）
 
-
 ![架构图](./juggle.png "juggle.png")
 
+## allinone下载
 
-## allinone安装
-
-
-& npm install juggle-all
-	
+```
+npm install juggle-all
+```
 	
 
 ## 核心组件介绍
 
-### 1、事件Event
+-------------
 
-juggle-event是一个事件库，可用于解除包含结构，树形结构的耦合性，支持冒泡，是构建UI的基石。
+### 1、juggle-event（支持冒泡的事件）
 
+**介绍**：支持冒泡的事件库，可用于解除包含结构，树形结构的耦合性。可进行监听事件、派发事件。
+
+**注意**：
 
 	1、支持冒泡，前提冒泡对象的parent不为空并且isDisplayObject是true
-
     2、在派发事件的回调函数内将parent设置为null，不能阻止这一次parent接到这次事件
-
     3、在派发事件某层级的回调函数内，移除这层级的监听或添加这层级的监听，是不会影响这次派发事件目标的改变的。
-
     4、但是如果在某层级的回调函数内，移除上层的监听或添加上层的监听，上层本轮会受到影响。
 
->安装：	
-	
-	npm install juggle-event
+**下载**：
+
+```
+npm install juggle-event
+```
+
+**使用场景**：开发UI组件库，封装任意组件时都可以使用。例如：juggle-http，juggle-websocket都支持派发自定义事件。
+
+**示例代码**：
 
 
 >代码示例：
