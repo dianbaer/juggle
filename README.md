@@ -199,7 +199,7 @@ juggle.jugglerManager.juggler.add(delayedCall);
 ```
 npm install juggle-mv
 ```
-**使用场景**：
+**使用场景**：需要与服务器进行交互的web项目。
 
 **示例代码**：
 
@@ -237,39 +237,41 @@ function IndexMediator() {
 
 ---------------------------------------
 
-
-
-
-
-
-
-
-
-
 ## 其他组件介绍
 
+------
+### 1、juggle-websocket（简易封装，支持自定义事件派发的websocket客户端库）
 
-### 1、支持事件派发的websocket客户端
+**下载**：
+```
+npm install juggle-websocket
+```
+**使用场景**：需要与服务器建立长连接，依赖服务器推送消息的web项目。
+
+**示例代码**：
+
+1、websocket客户端与服务器示例
+
+[>>>>>>websocket客户端](./juggle-websocket-test)
+
+[>>>>>>websocket服务器](https://github.com/dianbaer/grain/tree/master/grain-threadwebsocket-test)
+
+------
 
 
-juggle-websocket是一个支持事件派发的websocket客户端
 
 
->安装：
-
-	npm install juggle-websocket
 
 
->例子：
-
-[juggle-websocket-test](./juggle-websocket-test)
-
-websocket服务器（直接可用）：
-
-https://github.com/dianbaer/grain/tree/master/grain-threadwebsocket-test
 
 
-[juggle-websocket详细介绍](./juggle-websocket)
+
+
+
+
+
+
+
 
 
 ### 2、http客户端
@@ -340,11 +342,18 @@ juggle-module是模块类，支持模块加载卸载
 [juggle-module详细介绍](./juggle-module)
 
 
-[juggle-event详细介绍](./juggle-event)
-[juggle-juggler详细介绍](./juggle-juggler)
-[juggle-tween详细介绍](./juggle-tween)
-[juggle-delayedcall详细介绍](./juggle-delayedcall)
-[juggle-mv详细介绍](./juggle-mv)
+[>>>>>>juggle-event详细介绍](./juggle-event)
+
+[>>>>>>juggle-juggler详细介绍](./juggle-juggler)
+
+[>>>>>>juggle-tween详细介绍](./juggle-tween)
+
+[>>>>>>juggle-delayedcall详细介绍](./juggle-delayedcall)
+
+[>>>>>>juggle-mv详细介绍](./juggle-mv)
+
+[>>>>>>juggle-websocket详细介绍](./juggle-websocket)
+
 
 ### github地址：
 
