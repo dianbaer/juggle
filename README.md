@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 
-## juggle是一个极简的、组件式的js框架。无依赖，完美闭包，灵活且适合渐进学习，可与任何框架整合。包含（支持冒泡的事件、Tween、mv框架、http、websocket、资源、模块）等组件，按需选择组件，不绑架开发者。
+## juggle是一个极简的、组件式的js框架。无依赖，完美闭包，灵活且适合渐进学习，可与任何框架整合。包含（支持冒泡的事件、Tween、MV框架、http、websocket、资源、模块）等组件，按需选择组件，不绑架开发者。
 
 
 ## juggle架构图及其依赖关系（深颜色的是核心组件强烈推荐）
@@ -193,67 +193,57 @@ juggle.jugglerManager.juggler.add(delayedCall);
 
 ------------------
 
+### 5、juggle-mv（MV框架）
+
+**介绍**：一个MV框架解除数据源与视图控制器的耦合性，视同控制器之间的耦合性，严密的闭包封装，用户只需继承Proxy与Mediator即可。
+
+**下载**：
+```
+npm install juggle-mv
+```
+**使用场景**：
+
+**示例代码**：
+
+1、继承Proxy作为数据代理，可以请求数据结果后广播消息。
+```
+function UserProxy() {
+	//继承
+	juggle.Proxy.apply(this);
+	//获取数据然后广播
+	this.getData = function () {
+		this.notifyObservers(this.getNotification("test", "getData success"));
+	};
+}
+```
+2、继承Mediator作为视图控制器，控制视图、调用数据库、关注数据源广播过来的消息。
+```
+function IndexMediator() {
+	//关注消息
+	this.listNotificationInterests = ["test"];
+	//关注消息的处理
+	this.handleNotification = function (data) {
+		switch (data.name) {
+			case "test":
+				alert("IndexMediator接到数据" + data.body);
+				break;
+		}
+	};
+	//继承
+	juggle.Mediator.apply(this);
+}
+```
+3、MV框架Demo（双击test.html即可）
+
+[>>>>>>MV框架Demo](./juggle-mv-test)
+
+---------------------------------------
 
 
 
 
 
 
-
-### 5、mv框架
-
-
-juggle-mv是一个mv框架解除数据源与视图控制器，视图控制器之间的耦合性。
-
-
-	1、严密的闭包封装，用户只需关心数据代理proxy与视图控制器mediator的开发
-	
-
->安装：
-
-	npm install juggle-mv
-	
-	
->代码示例：
-
-	function UserProxy() {
-		juggle.Proxy.apply(this);
-		this.getData = function () {
-			//广播消息
-			this.notifyObservers(this.getNotification("test", "getData success"));
-		};
-		this.getData1 = function () {
-			//广播消息
-			this.notifyObservers(this.getNotification("test1", "getData1 success"));
-		};
-	}
-	function IndexMediator() {
-		this.listNotificationInterests = ["test", "test1"];
-		this.handleNotification = function (data) {
-			switch (data.name) {
-				case "test":
-					alert("IndexMediator接到数据" + data.body);
-					break;
-				case "test1":
-					alert("IndexMediator接到数据" + data.body);
-					break;
-			}
-		};
-		juggle.Mediator.apply(this);
-	}
-	var proxy = new UserProxy();
-	var mediator = new IndexMediator();
-	proxy.getData();
-	proxy.getData1();
-
-
->例子：
-
-
-[juggle-mv-test](./juggle-mv-test)
-
-
-[juggle-mv详细介绍](./juggle-mv)
 
 
 
@@ -356,6 +346,7 @@ juggle-module是模块类，支持模块加载卸载
 [juggle-juggler详细介绍](./juggle-juggler)
 [juggle-tween详细介绍](./juggle-tween)
 [juggle-delayedcall详细介绍](./juggle-delayedcall)
+[juggle-mv详细介绍](./juggle-mv)
 
 ### github地址：
 
