@@ -217,7 +217,7 @@ function UserProxy() {
 }
 ```
 2、继承Mediator作为视图控制器，控制视图、调用数据库、关注数据源广播过来的消息。
-```
+```js
 function IndexMediator() {
 	//关注消息
 	this.listNotificationInterests = ["test"];
