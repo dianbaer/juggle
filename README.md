@@ -25,9 +25,9 @@ npm install juggle-all
 
 ### 1、juggle-event（支持冒泡的事件）
 
-**介绍**：支持冒泡的事件库，可用于解除包含结构，树形结构的耦合性。支持监听事件、移除事件、派发事件、阻止冒泡、立即阻止。
+**介绍**：支持冒泡的事件，可用于解除包含结构，树形结构的耦合性。支持监听事件、移除事件、派发事件、阻止冒泡、立即阻止。
 
-**需注意的特性**：
+**优秀且需要注意的特性**：
 
 	1、支持冒泡，前提冒泡对象的parent不为空并且isDisplayObject是true
     2、在派发事件的回调函数内将parent设置为null，不能阻止这一次parent接到这次事件
@@ -40,88 +40,69 @@ npm install juggle-all
 npm install juggle-event
 ```
 
-**使用场景**：开发UI组件库，封装任意组件时都可以使用。例如：juggle-http，juggle-websocket都支持派发自定义事件。
+**使用场景**：开发UI组件库，封装任意组件时都可以使用。例如：juggle-http，juggle-websocket都是基于此事件，派发特定的事件。
 
 **示例代码**：
 
+1、继承事件类
+```
+function DisplayObj() {
+	juggle.EventDispatcher.apply(this);
+}
+```
+2、监听事件
+```
+obj.addEventListener("aaa", function(event){}, this);
+```
+3、派发事件，派发事件为aaa，冒泡，携带数据bbb
+```
+obj.dispatchEventWith("aaa", true, "bbb");
+```
+4、事件Demo（双击test.html即可）
 
->代码示例：
-	
-	function DisplayObj() {
-		juggle.EventDispatcher.apply(this);
-	}
-	function DisplayObjContainer() {
-		DisplayObj.apply(this);
-		this.addChild = function (child) {
-			child.parent = this;
-		};
-		this.removeChild = function (child) {
-			child.parent = null;
-		};
-	}
-	//创建DisplayObj对象
-	var obj = new DisplayObj();
-	//创建DisplayObjContainer对象
-	var container = new DisplayObjContainer();
-	//将container是obj的容器
-	container.addChild(obj);
-	//添加监听
-	obj.addEventListener("aaa", function(event){}, this);
-	container.addEventListener("aaa", function(event){},this);
-	//发布事件
-	obj.dispatchEventWith("aaa", true, "bbb");
+[>>>>>>事件Demo](./juggle-event-test)
 
+------------------
 
->例子：
+### 2、juggle-juggler（时间轴总控）
 
+**介绍**：时间轴总控，支持添加动画，移除动画，每帧进行动画回调并携带与上一次调用的间隔毫秒数
 
-[juggle-event-test](./juggle-event-test)
-
-
-[juggle-event详细介绍](./juggle-event)
-
-
-### 2、动画管理Juggler
-
-
-juggle-event是一个动画管理类，可以添加与移除动画。
-
+**优秀且需要注意的特性**：
 
 	1、回调中新加入的动画不能在这一次被调度，因为没有经历时间过程这是合理的
-	
     2、回调中移除的分两种可能，已经在本次调度的无影响，没有在本次调度的取消本次调度
 
->安装：
+**下载**：
 
-	npm install juggle-juggler
+```
+npm install juggle-juggler
+```
 
+**使用场景**：所有动画，每帧进行调用业务逻辑，都可以使用。
 
->代码示例：
+**示例代码**：
 
-	
-	function View() {
-		this.advanceTime = function (time) {
-		}
+1、必须事件规定的advanceTime方法
+```
+function View() {
+	this.advanceTime = function (time) {
 	}
-	function Movie() {
-		juggle.EventDispatcher.apply(this);
-		this.advanceTime = function (time) {
+}
+```
+2、加入时间轴总控，每帧进行调用advanceTime，并携带与上一次调用的间隔毫秒数
+```
+juggle.jugglerManager.juggler.add(new View());
+```
+3、时间轴总控Demo（双击test.html即可）
 
-		}
-	}
-	var view = new View();
-    var movie = new Movie();
-	juggle.jugglerManager.juggler.add(view);
-	juggle.jugglerManager.juggler.add(movie);
+[>>>>>>时间轴总控Demo](./juggle-juggler-test)
 
-
->例子：
+-----------------
 
 
-[juggle-juggler-test](./juggle-juggler-test)
 
 
-[juggle-juggler详细介绍](./juggle-juggler)
 
 
 ### 3、动画类Tween
@@ -397,6 +378,9 @@ juggle-module是模块类，支持模块加载卸载
 
 [juggle-module详细介绍](./juggle-module)
 
+
+[juggle-event详细介绍](./juggle-event)
+[juggle-juggler详细介绍](./juggle-juggler)
 
 ### github地址：
 
