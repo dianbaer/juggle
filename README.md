@@ -13,9 +13,9 @@
 ![架构图](./juggle.png "juggle.png")
 
 ## allinone下载
-
-$ npm install juggle-all
-	
+```
+npm install juggle-all
+```
 
 ## 核心组件介绍
 
