@@ -25,7 +25,7 @@ npm install juggle-all
 
 ### 1、juggle-event（支持冒泡的事件）
 
-**介绍**：支持冒泡的事件，可用于解除包含结构，树形结构的耦合性。支持监听事件、移除事件、派发事件、阻止冒泡、立即阻止。
+**介绍**：支持冒泡的事件，可用于解除包含结构，树形结构的耦合性。支持监听事件、移除事件、派发事件、阻止冒泡、立即阻止。使用对象池减少垃圾回收。
 
 **优秀且需要注意的特性**：
 
@@ -102,7 +102,7 @@ juggle.jugglerManager.juggler.add(new View());
 
 ### 3、juggle-tween（缓动类）
 
-**介绍**：缓动类，支持17种过渡模式，每帧无误差精准定位，完美的平滑过渡。
+**介绍**：缓动类，支持17种过渡模式，每帧无误差精准定位，完美的平滑过渡。支持对象池减少垃圾回收。
 
 **优秀且需要注意的特性**：
 
@@ -113,7 +113,7 @@ juggle.jugglerManager.juggler.add(new View());
 ```
 npm install juggle-tween
 ```
-**使用场景**：任何需要动画过渡的场景都可以使用。
+**使用场景**：需要动画过渡的都可以使用。
 
 **示例代码**：
 
@@ -158,9 +158,9 @@ juggle.jugglerManager.juggler.add(tween);
 
 [>>>>>>Tween的Demo](./juggle-tween-test)
 
-4、Tween线上演示地址：
+4、Tween的Demo线上演示地址：
 
-[>>>>>>Tween线上演示地址](https://www.threecss.com/juggle-tween-test/test.html)
+[>>>>>>Tween的Demo线上演示地址](https://www.threecss.com/juggle-tween-test/test.html)
 
 -----------------
 
