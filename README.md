@@ -40,7 +40,7 @@ npm install juggle-all
 npm install juggle-event
 ```
 
-**使用场景**：开发UI组件库，封装任意组件时都可以使用。例如：juggle-http，juggle-websocket都是基于此事件，派发特定的事件。
+**使用场景**：开发UI组件库，封装任意组件时都可以使用。例如：juggle-http，juggle-websocket都是基于此事件，可以派发专有的自定义事件。
 
 **示例代码**：
 
@@ -54,7 +54,7 @@ function DisplayObj() {
 ```
 obj.addEventListener("aaa", function(event){}, this);
 ```
-3、派发事件，派发事件为aaa，冒泡，携带数据bbb
+3、派发事件，派发类型为aaa，冒泡，携带数据bbb
 ```
 obj.dispatchEventWith("aaa", true, "bbb");
 ```
