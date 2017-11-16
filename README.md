@@ -164,7 +164,7 @@ juggle.jugglerManager.juggler.add(tween);
 
 ### 4、juggle-delayedcall（延迟回调）
 
-**介绍**：一个绝对精准的延迟回调工具，支持设置回调间隔，回调次数（无限次数）。setInterval多次调用的情况下是不精准的。使用对象池减少垃圾回收。
+**介绍**：一个绝对精准的延迟回调工具，支持设置回调间隔，回调次数（支持无限次数）。解决setInterval多次调用不精准的问题。使用对象池减少垃圾回收。
 
 **优秀且需要注意的特性**：
 
@@ -193,7 +193,7 @@ juggle.jugglerManager.juggler.add(delayedCall);
 
 ### 5、juggle-mv（MV框架）
 
-**介绍**：一个MV框架解除数据源与视图控制器的耦合性，视同控制器之间的耦合性，严密的闭包封装，用户只需继承Proxy与Mediator即可。
+**介绍**：一个MV框架解除数据源与视图控制器的耦合性，视同控制器之间的耦合性，严密的闭包封装，用户只需继承Proxy与Mediator即可开发MV模式的项目。
 
 **下载**：
 ```
@@ -214,7 +214,7 @@ function UserProxy() {
 	};
 }
 ```
-2、继承Mediator作为视图控制器，控制视图、调用数据库、关注数据源广播过来的消息。
+2、继承Mediator作为视图控制器，控制视图、调用数据源Proxy、关注数据源Proxy与视图控制器Mediator广播过来的消息并处理。
 ```js
 function IndexMediator() {
 	//关注消息
