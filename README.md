@@ -83,18 +83,18 @@ npm install juggle-juggler
 
 **示例代码**：
 
-1、必须事件规定的advanceTime方法
+1、必须实现规定的advanceTime方法
 ```
 function View() {
 	this.advanceTime = function (time) {
 	}
 }
 ```
-2、加入时间轴总控，每帧进行调用advanceTime，并携带与上一次调用的间隔毫秒数
+2、加入时间轴总控，每帧会调用advanceTime，并携带与上一次调用的间隔毫秒数
 ```
 juggle.jugglerManager.juggler.add(new View());
 ```
-3、时间轴总控Demo（双击test.html即可）
+3、时间轴总控Demo
 
 [>>>>>>时间轴总控Demo](./juggle-juggler-test)
 
