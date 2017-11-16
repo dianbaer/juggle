@@ -14,9 +14,7 @@
 
 ## allinone下载
 
-```
-npm install juggle-all
-```
+$ npm install juggle-all
 	
 
 ## 核心组件介绍
@@ -45,17 +43,17 @@ npm install juggle-event
 **示例代码**：
 
 1、继承事件类
-```
+```js
 function DisplayObj() {
 	juggle.EventDispatcher.apply(this);
 }
 ```
 2、监听事件
-```
+```js
 obj.addEventListener("aaa", function(event){}, this);
 ```
 3、派发事件，派发类型为aaa，冒泡，携带数据bbb
-```
+```js
 obj.dispatchEventWith("aaa", true, "bbb");
 ```
 4、事件Demo（双击test.html即可）
@@ -84,14 +82,14 @@ npm install juggle-juggler
 **示例代码**：
 
 1、必须实现规定的advanceTime方法
-```
+```js
 function View() {
 	this.advanceTime = function (time) {
 	}
 }
 ```
 2、加入时间轴总控，每帧会调用advanceTime，并携带与上一次调用的间隔毫秒数
-```
+```js
 juggle.jugglerManager.juggler.add(new View());
 ```
 3、时间轴总控Demo
@@ -118,7 +116,7 @@ npm install juggle-tween
 **示例代码**：
 
 1、创建一个显示对象
-```
+```js
 function DisplayObject(obj) {
 	this.obj = obj;
 	this.xValue = 0;
@@ -145,7 +143,7 @@ function DisplayObject(obj) {
 }
 ```	
 2、使用juggle-tween进行动画过渡
-```
+```js
 var display = new DisplayObject(document.getElementById("tween_div"));
 display.setX(100);
 display.setY(100);
@@ -181,7 +179,7 @@ npm install juggle-delayedcall
 **示例代码**：
 
 1、延迟回调例子，参数1延迟回调函数，每1秒回调一次，携带1111参数，重复5次后停止回调。
-```
+```js
 var delayedCall = juggle.delayedCallPool.fromPool(function(arg){}, 1, "1111");
 delayedCall.mRepeatCount = 5;
 juggle.jugglerManager.juggler.add(delayedCall);
@@ -206,7 +204,7 @@ npm install juggle-mv
 **示例代码**：
 
 1、继承Proxy作为数据代理，可以请求数据结果后广播消息。
-```
+```js
 function UserProxy() {
 	//继承
 	juggle.Proxy.apply(this);
