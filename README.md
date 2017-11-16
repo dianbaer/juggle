@@ -100,99 +100,69 @@ juggle.jugglerManager.juggler.add(new View());
 
 -----------------
 
+### 3、juggle-tween（缓动类）
 
+**介绍**：缓动类，支持17种过渡模式，每帧无误差精准定位，完美的平滑过渡。
 
-
-
-
-### 3、动画类Tween
-
-
-juggle-tween是Tween类，拥有精准的动画。
-
+**优秀且需要注意的特性**：
 
 	1、每次调用都是开始值+（终点-起点）*（经过时间/总时间），这是最稳定的，没有任何误差
-	
     2、连续调度，如果一次完成，剩余时间再次利用不浪费
 
+**下载**：
+```
+npm install juggle-tween
+```
+**使用场景**：任何需要动画过渡的场景都可以使用。
 
->安装：
+**示例代码**：
 
-	npm install juggle-tween
-	
-	
->代码示例：
-
-
-	function DisplayObject(obj) {
-		this.obj = obj;
-		this.xValue = 0;
-		this.yValue = 0;
-		this.alphaValue = 0;
-		this.visibility = "visible";
-		this.getX = function () {
-			return this.xValue;
-		};
-		this.setX = function (value) {
-			this.xValue = value;
-			this.draw();
-		};
-		this.getY = function () {
-			return this.yValue;
-		};
-		this.setY = function (value) {
-			this.yValue = value;
-			this.draw();
-		};
-		this.getAlpha = function () {
-			return this.alphaValue;
-		};
-		this.setAlpha = function (value) {
-			this.alphaValue = value;
-			this.draw();
-		};
-		this.setVisible = function (value) {
-			if (value === true) {
-				this.visibility = "visible";
-			} else {
-				this.visibility = "hidden";
-			}
-			this.draw();
-		};
-		this.draw = function () {
-			this.obj.style.position = "absolute";
-			this.obj.style.top = this.yValue + "px";
-			this.obj.style.left = this.xValue + "px";
-			this.obj.style.opacity = this.alphaValue;
-			this.obj.style.filter = "alpha(opacity=" + (this.alphaValue * 100) + "%)";
-			this.obj.style.visibility = this.visibility;
-		}
+1、创建一个显示对象
+```
+function DisplayObject(obj) {
+	this.obj = obj;
+	this.xValue = 0;
+	this.yValue = 0;
+	this.getX = function () {
+		return this.xValue;
+	};
+	this.setX = function (value) {
+		this.xValue = value;
+		this.draw();
+	};
+	this.getY = function () {
+		return this.yValue;
+	};
+	this.setY = function (value) {
+		this.yValue = value;
+		this.draw();
+	};
+	this.draw = function () {
+		this.obj.style.position = "absolute";
+		this.obj.style.top = this.yValue + "px";
+		this.obj.style.left = this.xValue + "px";
 	}
+}
+```	
+2、使用juggle-tween进行动画过渡
+```
+var display = new DisplayObject(document.getElementById("tween_div"));
+display.setX(100);
+display.setY(100);
+tween = juggle.tweenPool.fromPool(display, 2);
+tween.animate(display.getX, display.setX, 800);
+tween.animate(display.getY, display.setY, 400);
+juggle.jugglerManager.juggler.add(tween);
+```
+3、Tween的Demo（双击test.html即可）
 
-	var display = new DisplayObject(document.getElementById("tween_div"));
-	display.setAlpha(1);
-	display.setX(100);
-	display.setY(100);
-	tween = juggle.tweenPool.fromPool(display, 2);
-	tween.animate(display.getX, display.setX, 800);
-	tween.animate(display.getY, display.setY, 400);
-	juggle.jugglerManager.juggler.add(tween);
+[>>>>>>Tween的Demo](./juggle-tween-test)
 
+4、Tween线上演示地址：
 
->例子：
+[>>>>>>Tween线上演示地址](https://www.threecss.com/juggle-tween-test/test.html)
 
-
-[juggle-tween-test](./juggle-tween-test)
-
-线上例子地址：
-
-https://www.threecss.com/juggle-tween-test/test.html
-
-
-[juggle-tween详细介绍](./juggle-tween)
-
-
-
+-----------------
 
 ### 4、延迟回调DelayedCall
 
@@ -381,6 +351,7 @@ juggle-module是模块类，支持模块加载卸载
 
 [juggle-event详细介绍](./juggle-event)
 [juggle-juggler详细介绍](./juggle-juggler)
+[juggle-tween详细介绍](./juggle-tween)
 
 ### github地址：
 
