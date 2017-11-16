@@ -295,50 +295,39 @@ npm install juggle-http
 
 -------------
 
+### 3、juggle-resource（支持加载多资源回调的资源库）
 
+**下载**：
+```
+npm install juggle-resource
+```
 
+**使用场景**：配合juggle-module使用。
 
-### 3、resource资源
+**示例代码**：
 
+1、加载资源Demo
 
-juggle-resouce是一个资源库，支持加载多资源回调
+[>>>>>>加载资源Demo](./juggle-resource-test)
 
+--------------
 
->安装：
+### 4、juggle-module（模块库，前端模块化架构）
 
+**下载**：
+```
+npm install juggle-module
+```
 
-	npm install juggle-resource
+**示例代码**：
 
+1、模块Demo
 
->例子：
+[>>>>>>模块Demo](./juggle-module-test)
 
+-------------------
 
-[juggle-resource-test](./juggle-resource-test)
-
-
-[juggle-resource详细介绍](./juggle-resource)
-
-
-### 4、module资源
-
-
-juggle-module是模块类，支持模块加载卸载
-
-
->安装：
-
-
-	npm install juggle-module
-
-
->例子：
-
-
-[juggle-module-test](./juggle-module-test)
-
-
-[juggle-module详细介绍](./juggle-module)
-
+## 更多详细介绍
 
 [>>>>>>juggle-event详细介绍](./juggle-event)
 
@@ -354,37 +343,14 @@ juggle-module是模块类，支持模块加载卸载
 
 [>>>>>>juggle-http详细介绍](./juggle-http)
 
+[>>>>>>juggle-resource详细介绍](./juggle-resource)
 
-### github地址：
+[>>>>>>juggle-module详细介绍](./juggle-module)
 
-https://github.com/dianbaer/juggle
+## juggle地址：
 
-### 码云地址：
+[>>>>>>github](https://github.com/dianbaer/juggle)
 
-https://gitee.com/dianbaer/basic
-
-
-### 基于juggle开发的项目
-
-anyupload是一个极度纯净的上传插件，通过简单调整就可以融入到任何项目，支持多文件上传、上传速率动态控制、真实进度监控kb/s、分块生成MD5、分块上传、MD5校验秒传、暂停、取消等。
-
-https://github.com/dianbaer/anyupload
-
-https://gitee.com/dianbaer/anyupload
-
-anychat是一个极简纯净的websocket聊天插件，支持对接任何身份系统，嵌入方只需提供三个API即可进行实时通讯。支持个人聊天、群聊天、上下线、查看聊天记录、离线消息推送等，服务器绝对控制权的推送机制，合理的线程设计，支持mongodb存储聊天记录，天生的嵌入式支持。 
-
-https://github.com/dianbaer/anychat
-
-https://gitee.com/dianbaer/anychat
-
-
-### 上传npm包
-
-    npm pack
-
-    npm adduser
-
-    npm publish
+[>>>>>>码云](https://gitee.com/dianbaer/basic)
 
 	

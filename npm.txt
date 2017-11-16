@@ -1,0 +1,7 @@
+### 上传npm包
+
+    npm pack
+
+    npm adduser
+
+    npm publish
