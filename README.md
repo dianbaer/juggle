@@ -164,36 +164,39 @@ juggle.jugglerManager.juggler.add(tween);
 
 -----------------
 
-### 4、延迟回调DelayedCall
+### 4、juggle-delayedcall（延迟回调）
 
-juggle-delayedcalll是一个精准的延迟回调类。
+**介绍**：一个绝对精准的延迟回调工具，支持设置回调间隔，回调次数（无限次数）。setInterval多次调用的情况下是不精准的。使用对象池减少垃圾回收。
 
+**优秀且需要注意的特性**：
 
 	1、连续调度，如果一次完成，剩余时间再次利用不浪费
 
->安装：
+**下载**：
+```
+npm install juggle-delayedcall
+```
+**使用场景**：所有需要延迟回调的业务，替代setInterval。
 
-	npm install juggle-delayedcall
-	
-	
->代码示例：
-	
-	function delayCallFunc(arg) {
-		alert(delayedCall.isComplete());
-	}
+**示例代码**：
 
-	var delayedCall = juggle.delayedCallPool.fromPool(delayCallFunc, 1, "1111");
-	delayedCall.mRepeatCount = 5;
-	juggle.jugglerManager.juggler.add(delayedCall);
+1、延迟回调例子，参数1延迟回调函数，每1秒回调一次，携带1111参数，重复5次后停止回调。
+```
+var delayedCall = juggle.delayedCallPool.fromPool(function(arg){}, 1, "1111");
+delayedCall.mRepeatCount = 5;
+juggle.jugglerManager.juggler.add(delayedCall);
+```
 
+2、延迟回调Demo（双击test.html即可）
 
->例子：
+[>>>>>>延迟回调Demo](./juggle-delayedcall-test)
 
-
-[juggle-delayedcall-test](./juggle-delayedcall-test)
+------------------
 
 
-[juggle-delayedcall详细介绍](./juggle-delayedcall)
+
+
+
 
 
 
@@ -352,6 +355,7 @@ juggle-module是模块类，支持模块加载卸载
 [juggle-event详细介绍](./juggle-event)
 [juggle-juggler详细介绍](./juggle-juggler)
 [juggle-tween详细介绍](./juggle-tween)
+[juggle-delayedcall详细介绍](./juggle-delayedcall)
 
 ### github地址：
 
