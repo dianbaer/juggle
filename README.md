@@ -79,7 +79,7 @@ obj.dispatchEventWith("aaa", true, "bbb");
 npm install juggle-juggler
 ```
 
-**使用场景**：所有动画，每帧进行调用业务逻辑，都可以使用。
+**使用场景**：动画，每帧进行调用的业务逻辑，都可以使用。
 
 **示例代码**：
 
