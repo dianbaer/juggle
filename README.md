@@ -256,47 +256,44 @@ npm install juggle-websocket
 
 [>>>>>>websocket服务器](https://github.com/dianbaer/grain/tree/master/grain-threadwebsocket-test)
 
+2、anychat是一个极简纯净的websocket聊天插件，支持对接任何身份系统，嵌入方只需提供三个API即可进行实时通讯。支持个人聊天、群聊天、上下线、查看聊天记录、离线消息推送等，服务器绝对控制权的推送机制，合理的线程设计，支持mongodb存储聊天记录，天生的嵌入式支持。 
+
+[>>>>>>anychat github地址](https://github.com/dianbaer/anychat)
+
+[>>>>>>anychat 码云地址](https://gitee.com/dianbaer/anychat)
 ------
 
+### 2、juggle-http（简易封装，通用性很好的http客户端库）
+
+**下载**：
+```
+npm install juggle-http
+```
+**使用场景**：需要向服务器发送http请求的web项目。
+
+**示例代码**：
+
+1、http客户端与服务器示例
+
+[>>>>>>http客户端](./juggle-http-test)
+
+[>>>>>>http服务器](https://github.com/dianbaer/grain/tree/master/grain-httpserver-test)
+
+2、anyupload是一个极度纯净的上传插件，通过简单调整就可以融入到任何项目，支持多文件上传、上传速率动态控制、真实进度监控kb/s、分块生成MD5、分块上传、MD5校验秒传、暂停、取消等。
+
+[>>>>>>anyupload github地址](https://github.com/dianbaer/anyupload)
+
+[>>>>>>anyupload github地址](https://gitee.com/dianbaer/anyupload)
 
 
+3、startpoint是一个身份系统，提供用户、树形结构组、token等API。
 
+[>>>>>>startpoint github地址](https://github.com/dianbaer/startpoint)
 
+[>>>>>>startpoint github地址](https://gitee.com/dianbaer/startpoint)
 
+-------------
 
-
-
-
-
-
-
-
-
-
-
-### 2、http客户端
-
-
-juggle-http是可以进行事件派发的httpclient库，可以发文件
-
-
->安装：
-
-
-	npm install juggle-http
-
-	
->例子：
-
-
-[juggle-http-test](./juggle-http-test)
-
-http服务器（直接可用）：
-
-https://github.com/dianbaer/grain/tree/master/grain-httpserver-test
-
-
-[juggle-http详细介绍](./juggle-http)
 
 
 
@@ -353,6 +350,8 @@ juggle-module是模块类，支持模块加载卸载
 [>>>>>>juggle-mv详细介绍](./juggle-mv)
 
 [>>>>>>juggle-websocket详细介绍](./juggle-websocket)
+
+[>>>>>>juggle-http详细介绍](./juggle-http)
 
 
 ### github地址：
