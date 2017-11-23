@@ -297,7 +297,6 @@ npm install juggle-resource
 
 ### 4、juggle-module（模块库，前端模块化架构）
 
-
 **下载**：
 ```
 npm install juggle-module
