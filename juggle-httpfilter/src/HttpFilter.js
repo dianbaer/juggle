@@ -42,7 +42,7 @@
             if (check) {
                 httpClient.callSuccess.call(httpClient.callObj, result);
             } else {
-                httpClient.callError.call(httpClient.callObj);
+                httpClient.callError.call(httpClient.callObj, result);
             }
 
         };
