@@ -17,20 +17,22 @@
             }
             return true;
         };
-        this.send = function (data, url, header, type, isAsync, callObj, callSuccess, callError) {
+        this.send = function (data, url, header, type, isAsync, callObj, callSuccess, callError, callData) {
             var httpClient = new HttpClient();
             httpClient.callObj = callObj;
             httpClient.callSuccess = callSuccess;
             httpClient.callError = callError;
+            httpClient.callData = callData;
             httpClient.send(data, url, header, type, isAsync);
             httpClient.addEventListener(httpEventType.SUCCESS, this.successHandle, this);
             httpClient.addEventListener(httpEventType.ERROR, this.errorHandle, this);
         };
-        this.sendFile = function (fileList, data, url, header, type, isAsync, callObj, callSuccess, callError) {
+        this.sendFile = function (fileList, data, url, header, type, isAsync, callObj, callSuccess, callError, callData) {
             var httpClient = new HttpClient();
             httpClient.callObj = callObj;
             httpClient.callSuccess = callSuccess;
             httpClient.callError = callError;
+            httpClient.callData = callData;
             httpClient.sendFile(fileList, data, url, header, type, isAsync);
             httpClient.addEventListener(httpEventType.SUCCESS, this.successHandle, this);
             httpClient.addEventListener(httpEventType.ERROR, this.errorHandle, this);
