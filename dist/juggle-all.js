@@ -1418,15 +1418,15 @@
             var httpClient = event.mTarget;
             var check = this.filter(result);
             if (check) {
-                httpClient.callSuccess.call(httpClient.callObj, result);
+                httpClient.callSuccess.call(httpClient.callObj, result, httpClient.callData);
             } else {
-                httpClient.callError.call(httpClient.callObj, result);
+                httpClient.callError.call(httpClient.callObj, result, httpClient.callData);
             }
 
         };
         this.errorHandle = function (event) {
             var httpClient = event.mTarget;
-            httpClient.callError.call(httpClient.callObj);
+            httpClient.callError.call(httpClient.callObj, null, httpClient.callData);
         }
     };
     window.juggle.httpFilter = new HttpFilter();
