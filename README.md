@@ -157,7 +157,7 @@ juggle.jugglerManager.juggler.add(tween);
 
 4、Tween的Demo线上演示地址：
 
-[>>>>>>Tween的Demo线上演示地址](https://www.threecss.com/juggle-tween-test/test.html)
+[>>>>>>Tween的Demo线上演示地址](https://www.dianbaer.com/juggle-tween-test/test.html)
 
 -----------------
 
