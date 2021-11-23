@@ -4,7 +4,7 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/c787bc1d8f5045d1acad4164a5388084)](https://www.codacy.com/app/232365732/juggle?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dianbaer/juggle&amp;utm_campaign=Badge_Grade)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-## juggle是一个极简的、组件式的js框架。无依赖，完美闭包，灵活且适合渐进学习，可与任何框架整合。包含（支持冒泡的事件、Tween、MV框架、http、websocket、资源、模块）等组件，按需选择组件，不绑架开发者。
+## juggle是一个极简的、组件式的js框架。无依赖，完美闭包，灵活且适合渐进学习，可与任何框架整合。包含（支持冒泡的事件、Tween、MV框架、http、websocket、资源、模块）等组件，按需选择组件，不绑架开发者。 
 
 
 ## juggle架构图及其依赖关系（深颜色的是核心组件强烈推荐）
